@@ -180,13 +180,23 @@
                 THE GLOBAL <span
                     class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-orange-500">CHESSBOARD</span>
             </h1>
-            <p class="text-xl text-slate-400 max-w-3xl mx-auto leading-relaxed">
+            <p class="text-xl text-slate-400 max-w-3xl mx-auto leading-relaxed mb-8">
                 Welcome to the high-stakes world of Geopolitics. It is the study of how
                 <span class="text-orange-400 font-bold">Geography</span>,
                 <span class="text-blue-400 font-bold">Economics</span>, and
                 <span class="text-emerald-400 font-bold">Demography</span>
                 determine the destiny of nations. Understand the game, and you understand the world.
             </p>
+            <div class="flex gap-4 justify-center mb-12">
+                <a href="#moves"
+                    class="inline-block bg-blue-600 hover:bg-blue-500 text-white font-bold py-3 px-8 rounded-full transition-all hover:scale-105 shadow-[0_0_20px_rgba(37,99,235,0.5)]">
+                    ENTER WAR ROOM
+                </a>
+                <a href="pages/atlas.html"
+                    class="inline-block bg-transparent border-2 border-emerald-500 hover:bg-emerald-500/20 text-emerald-400 font-bold py-3 px-8 rounded-full transition-all hover:scale-105 shadow-[0_0_20px_rgba(16,185,129,0.2)] flex items-center gap-2">
+                    <span>🌍</span> OPEN ATLAS
+                </a>
+            </div>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12">
                 <div class="info-card bg-slate-800 p-6 rounded-xl border-t-4 border-blue-500">
@@ -526,108 +536,118 @@
                                 <div class="relative z-10">
                                     <div class="flex items-center mb-4">
                                         <h3 class="text-3xl font-black text-emerald-400">EUROPEAN UNION</h3>
+                                        <span
+                                            class="ml-4 text-xs font-mono text-slate-400 border border-slate-600 px-2 py-1 rounded">REGULATOR</span>
                                     </div>
+                                    <p class="text-slate-300 mb-6 text-lg">An economic giant but a military dwarf. The
+                                        EU is waking up to a world where soft power is no longer enough.</p>
+                                    <a href="pages/eu.html"
+                                        class="inline-flex items-center bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-3 px-6 rounded-lg transition shadow-lg shadow-emerald-500/20">
+                                        OPEN CLASSIFIED DOSSIER
+                                        <span class="ml-2">→</span>
+                                    </a>
+                                </div>
+                            </div>
 
-                                    <!-- REGIONAL POWERS SECTION -->
-                                    <div class="mt-24 mb-12 border-t border-slate-700 pt-12">
-                                        <h2
-                                            class="text-3xl font-bold text-white mb-8 border-l-4 border-yellow-500 pl-4">
-                                            Regional
-                                            Pivots: The Swing States</h2>
-                                        <p class="text-slate-300 mb-8 max-w-3xl">These nations may not rule the world,
-                                            but they decide
-                                            who does. In a multipolar world, their allegiance is the ultimate prize.</p>
+                            <!-- REGIONAL POWERS SECTION -->
+                            <div class="mt-24 mb-12 border-t border-slate-700 pt-12">
+                                <h2 class="text-3xl font-bold text-white mb-8 border-l-4 border-yellow-500 pl-4">
+                                    Regional
+                                    Pivots: The Swing States</h2>
+                                <p class="text-slate-300 mb-8 max-w-3xl">These nations may not rule the world,
+                                    but they decide
+                                    who does. In a multipolar world, their allegiance is the ultimate prize.</p>
 
-                                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                                            <!-- Japan -->
-                                            <a href="pages/japan.html"
-                                                class="block bg-slate-800 p-6 rounded-xl border border-slate-700 hover:border-red-500 transition hover:bg-slate-750 group">
-                                                <div class="flex justify-between items-start mb-2">
-                                                    <h3 class="text-xl font-bold text-white group-hover:text-red-400">
-                                                        🇯🇵 JAPAN</h3>
-                                                    <span
-                                                        class="text-xs border border-slate-600 px-2 py-1 rounded text-slate-400">ASIA-PACIFIC</span>
-                                                </div>
-                                                <p class="text-sm text-slate-400">The unsinkable aircraft carrier.
-                                                    Re-arming to face
-                                                    China.</p>
-                                            </a>
-
-                                            <!-- UK -->
-                                            <a href="pages/uk.html"
-                                                class="block bg-slate-800 p-6 rounded-xl border border-slate-700 hover:border-blue-700 transition hover:bg-slate-750 group">
-                                                <div class="flex justify-between items-start mb-2">
-                                                    <h3 class="text-xl font-bold text-white group-hover:text-blue-400">
-                                                        🇬🇧 UNITED
-                                                        KINGDOM</h3>
-                                                    <span
-                                                        class="text-xs border border-slate-600 px-2 py-1 rounded text-slate-400">ATLANTIC</span>
-                                                </div>
-                                                <p class="text-sm text-slate-400">Post-Brexit coordinator. AUKUS
-                                                    architect and spy hub.
-                                                </p>
-                                            </a>
-
-                                            <!-- Saudi Arabia -->
-                                            <a href="pages/saudi_arabia.html"
-                                                class="block bg-slate-800 p-6 rounded-xl border border-slate-700 hover:border-green-500 transition hover:bg-slate-750 group">
-                                                <div class="flex justify-between items-start mb-2">
-                                                    <h3 class="text-xl font-bold text-white group-hover:text-green-400">
-                                                        🇸🇦 SAUDI
-                                                        ARABIA</h3>
-                                                    <span
-                                                        class="text-xs border border-slate-600 px-2 py-1 rounded text-slate-400">MIDDLE
-                                                        EAST</span>
-                                                </div>
-                                                <p class="text-sm text-slate-400">The Central Bank of Oil. Vision 2030
-                                                    seeks autonomy.
-                                                </p>
-                                            </a>
-
-                                            <!-- Brazil -->
-                                            <a href="pages/brazil.html"
-                                                class="block bg-slate-800 p-6 rounded-xl border border-slate-700 hover:border-green-600 transition hover:bg-slate-750 group">
-                                                <div class="flex justify-between items-start mb-2">
-                                                    <h3 class="text-xl font-bold text-white group-hover:text-green-500">
-                                                        🇧🇷 BRAZIL</h3>
-                                                    <span
-                                                        class="text-xs border border-slate-600 px-2 py-1 rounded text-slate-400">AMERICAS</span>
-                                                </div>
-                                                <p class="text-sm text-slate-400">The Agricultural Superpower. Leader of
-                                                    the Global
-                                                    South (Lula).</p>
-                                            </a>
-
-                                            <!-- Turkey -->
-                                            <a href="pages/turkey.html"
-                                                class="block bg-slate-800 p-6 rounded-xl border border-slate-700 hover:border-red-600 transition hover:bg-slate-750 group">
-                                                <div class="flex justify-between items-start mb-2">
-                                                    <h3 class="text-xl font-bold text-white group-hover:text-red-500">
-                                                        🇹🇷 TURKEY</h3>
-                                                    <span
-                                                        class="text-xs border border-slate-600 px-2 py-1 rounded text-slate-400">EURASIA</span>
-                                                </div>
-                                                <p class="text-sm text-slate-400">The Bridge. NATO member playing both
-                                                    sides
-                                                    (Russia/West).</p>
-                                            </a>
-
-                                            <!-- Iran -->
-                                            <a href="pages/iran.html"
-                                                class="block bg-slate-800 p-6 rounded-xl border border-slate-700 hover:border-red-700 transition hover:bg-slate-750 group">
-                                                <div class="flex justify-between items-start mb-2">
-                                                    <h3 class="text-xl font-bold text-white group-hover:text-red-600">
-                                                        🇮🇷 IRAN</h3>
-                                                    <span
-                                                        class="text-xs border border-slate-600 px-2 py-1 rounded text-slate-400">MIDDLE
-                                                        EAST</span>
-                                                </div>
-                                                <p class="text-sm text-slate-400">The Resistance. Asymmetric warfare
-                                                    master & Drone
-                                                    supplier.</p>
-                                            </a>
+                                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                                    <!-- Japan -->
+                                    <a href="pages/japan.html"
+                                        class="block bg-slate-800 p-6 rounded-xl border border-slate-700 hover:border-red-500 transition hover:bg-slate-750 group">
+                                        <div class="flex justify-between items-start mb-2">
+                                            <h3 class="text-xl font-bold text-white group-hover:text-red-400">
+                                                🇯🇵 JAPAN</h3>
+                                            <span
+                                                class="text-xs border border-slate-600 px-2 py-1 rounded text-slate-400">ASIA-PACIFIC</span>
                                         </div>
-                                    </div>
+                                        <p class="text-sm text-slate-400">The unsinkable aircraft carrier.
+                                            Re-arming to face
+                                            China.</p>
+                                    </a>
+
+                                    <!-- UK -->
+                                    <a href="pages/uk.html"
+                                        class="block bg-slate-800 p-6 rounded-xl border border-slate-700 hover:border-blue-700 transition hover:bg-slate-750 group">
+                                        <div class="flex justify-between items-start mb-2">
+                                            <h3 class="text-xl font-bold text-white group-hover:text-blue-400">
+                                                🇬🇧 UNITED
+                                                KINGDOM</h3>
+                                            <span
+                                                class="text-xs border border-slate-600 px-2 py-1 rounded text-slate-400">ATLANTIC</span>
+                                        </div>
+                                        <p class="text-sm text-slate-400">Post-Brexit coordinator. AUKUS
+                                            architect and spy hub.
+                                        </p>
+                                    </a>
+
+                                    <!-- Saudi Arabia -->
+                                    <a href="pages/saudi_arabia.html"
+                                        class="block bg-slate-800 p-6 rounded-xl border border-slate-700 hover:border-green-500 transition hover:bg-slate-750 group">
+                                        <div class="flex justify-between items-start mb-2">
+                                            <h3 class="text-xl font-bold text-white group-hover:text-green-400">
+                                                🇸🇦 SAUDI
+                                                ARABIA</h3>
+                                            <span
+                                                class="text-xs border border-slate-600 px-2 py-1 rounded text-slate-400">MIDDLE
+                                                EAST</span>
+                                        </div>
+                                        <p class="text-sm text-slate-400">The Central Bank of Oil. Vision 2030
+                                            seeks autonomy.
+                                        </p>
+                                    </a>
+
+                                    <!-- Brazil -->
+                                    <a href="pages/brazil.html"
+                                        class="block bg-slate-800 p-6 rounded-xl border border-slate-700 hover:border-green-600 transition hover:bg-slate-750 group">
+                                        <div class="flex justify-between items-start mb-2">
+                                            <h3 class="text-xl font-bold text-white group-hover:text-green-500">
+                                                🇧🇷 BRAZIL</h3>
+                                            <span
+                                                class="text-xs border border-slate-600 px-2 py-1 rounded text-slate-400">AMERICAS</span>
+                                        </div>
+                                        <p class="text-sm text-slate-400">The Agricultural Superpower. Leader of
+                                            the Global
+                                            South (Lula).</p>
+                                    </a>
+
+                                    <!-- Turkey -->
+                                    <a href="pages/turkey.html"
+                                        class="block bg-slate-800 p-6 rounded-xl border border-slate-700 hover:border-red-600 transition hover:bg-slate-750 group">
+                                        <div class="flex justify-between items-start mb-2">
+                                            <h3 class="text-xl font-bold text-white group-hover:text-red-500">
+                                                🇹🇷 TURKEY</h3>
+                                            <span
+                                                class="text-xs border border-slate-600 px-2 py-1 rounded text-slate-400">EURASIA</span>
+                                        </div>
+                                        <p class="text-sm text-slate-400">The Bridge. NATO member playing both
+                                            sides
+                                            (Russia/West).</p>
+                                    </a>
+
+                                    <!-- Iran -->
+                                    <a href="pages/iran.html"
+                                        class="block bg-slate-800 p-6 rounded-xl border border-slate-700 hover:border-red-700 transition hover:bg-slate-750 group">
+                                        <div class="flex justify-between items-start mb-2">
+                                            <h3 class="text-xl font-bold text-white group-hover:text-red-600">
+                                                🇮🇷 IRAN</h3>
+                                            <span
+                                                class="text-xs border border-slate-600 px-2 py-1 rounded text-slate-400">MIDDLE
+                                                EAST</span>
+                                        </div>
+                                        <p class="text-sm text-slate-400">The Resistance. Asymmetric warfare
+                                            master & Drone
+                                            supplier.</p>
+                                    </a>
+                                </div>
+                            </div>
 
         </section>
 
@@ -658,8 +678,8 @@
                 </div>
             </div>
             <p class="mt-10 text-slate-400 text-sm">
-                Geopolitics 101 created by Adarsh A educational purposes
-            </p>
+            <p class="text-slate-500 text-sm">Geopolitics 101 created by Adarsh A for educational purposes | &copy; 2026
+                All Rights Reserved.</p>
         </section>
 
     </main>

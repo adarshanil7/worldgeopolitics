@@ -105,11 +105,10 @@
         // Centered on "World Island" (Middle East/Central Asia)
         const map = L.map('map').setView([30, 60], 3);
 
-        // 2. Add Tiles (CartoDB Dark Matter for Cyber aesthetic)
-        L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
-            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
-            subdomains: 'abcd',
-            maxZoom: 19
+        // 2. Add Tiles (Esri NatGeoWorldMap - Colorful "Atlas Book" Style)
+        L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/NatGeo_World_Map/MapServer/tile/{z}/{y}/{x}', {
+            attribution: 'Tiles &copy; Esri &mdash; National Geographic, Esri, DeLorme, NAVTEQ, UNEP-WCMC, USGS, NASA, ESA, METI, NRCAN, GEBCO, NOAA, iPC',
+            maxZoom: 16
         }).addTo(map);
 
         // --- ICONS ---
@@ -181,27 +180,37 @@
         });
 
 
-        // C. FLASHPOINTS (Pulsing/Red)
+        // C. FLASHPOINTS (Color-Coded by Severity)
+        // Red = Active War | Orange = High Tension | Yellow = Dispute
         const flashpointsData = [
-            { name: "Ukraine (Donbas)", coords: [48, 38], color: "#ef4444", desc: "Active War. Russia vs NATO proxies. Artillery grind." },
-            { name: "Taiwan Strait", coords: [24, 119], color: "#ef4444", desc: "Potential Invasion. Chip supply chain choke." },
-            { name: "Gaza / Israel", coords: [31.5, 34.4], color: "#ef4444", desc: "Urban War. Regional destabilizer." },
-            { name: "South China Sea", coords: [12, 113], color: "#ef4444", desc: "Maritime disputes. China vs Philippines/Vietnam." },
-            { name: "Kashmir", coords: [34, 76], color: "#ef4444", desc: "Nuclear Flashpoint. India vs Pakistan/China." },
-            { name: "Sahel Belt", coords: [15, 0], color: "#ef4444", desc: "Coup Belt. Wagner (Russia) displaces France." }
+            { name: "Ukraine (Donbas)", coords: [48, 38], color: "#ef4444", radius: 20, type: "ACTIVE WAR", desc: "Attritional warfare. Russia vs NATO proxies." },
+            { name: "Gaza / Israel", coords: [31.5, 34.4], color: "#ef4444", radius: 15, type: "ACTIVE WAR", desc: "Urban combat. Potential for regional spillover." },
+            { name: "Taiwan Strait", coords: [24, 119], color: "#f97316", radius: 25, type: "INVASION THREAT", desc: "China's unification goal. Trigger for WW3." },
+            { name: "South China Sea", coords: [12, 113], color: "#eab308", radius: 30, type: "MARITIME DISPUTE", desc: "Resource/Territory claims. China vs Neighbors." },
+            { name: "Kashmir", coords: [34, 76], color: "#f97316", radius: 15, type: "NUCLEAR FLASHPOINT", desc: "Disputed territory. India vs Pakistan/China." },
+            { name: "Sahel Belt", coords: [15, 0], color: "#ef4444", radius: 40, type: "INSURGENCY / COUPS", desc: "Terrorism & Instability. Russian influence growing." },
+            { name: "Korean Peninsula", coords: [38, 127], color: "#f97316", radius: 15, type: "NUCLEAR STANDOFF", desc: "North vs South. Constant missile threats." }
         ];
 
         const flashpointsLayer = L.layerGroup();
         flashpointsData.forEach(f => {
             const circle = L.circleMarker(f.coords, {
-                radius: 10,
+                radius: f.radius,
                 color: f.color,
                 fillColor: f.color,
-                fillOpacity: 0.8
+                fillOpacity: 0.6,
+                weight: 2
             });
+
+            // Tooltip always visible for Wars to "clearly state problem"
+            if (f.color === "#ef4444") {
+                circle.bindTooltip(`<b>${f.type}</b>`, { permanent: true, direction: "top", className: "bg-red-900 text-white border-red-500" });
+            }
+
             circle.bindPopup(`
-                <div>
-                    <h3 class="font-bold text-red-500 mb-1">🔥 ${f.name}</h3>
+                <div class="text-left">
+                    <h3 class="font-black text-lg mb-1" style="color: ${f.color}">⚠️ ${f.type}</h3>
+                    <h4 class="font-bold text-white mb-2">${f.name}</h4>
                     <p class="text-sm text-slate-300">${f.desc}</p>
                 </div>
             `);
