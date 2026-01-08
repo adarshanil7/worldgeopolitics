@@ -148,9 +148,10 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-16">
                 <div class="flex items-center">
-                    <span class="text-2xl font-bold text-blue-500 brand-font">GEO<span
+                    <span class="text-xl md:text-2xl font-bold text-blue-500 brand-font">GEO<span
                             class="text-orange-500">POLITICS</span> 101</span>
                 </div>
+                <!-- Desktop Menu -->
                 <div class="hidden md:block">
                     <div class="ml-10 flex items-baseline space-x-4">
                         <a href="#intro"
@@ -169,6 +170,38 @@
                             class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Future</a>
                     </div>
                 </div>
+                <!-- Mobile Menu Button -->
+                <div class="-mr-2 flex md:hidden">
+                    <button type="button" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')"
+                        class="bg-slate-800 inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-slate-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-slate-800 focus:ring-white">
+                        <span class="sr-only">Open main menu</span>
+                        <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu, show/hide based on menu state. -->
+        <div class="hidden md:hidden bg-slate-800 border-b border-slate-700" id="mobile-menu">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#intro"
+                    class="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Intro</a>
+                <a href="#power"
+                    class="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Power</a>
+                <a href="#geography"
+                    class="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Geography</a>
+                <a href="#strategy"
+                    class="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Strategy</a>
+                <a href="#moves"
+                    class="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Moves</a>
+                <a href="pages/history.html"
+                    class="text-red-400 hover:bg-red-900/20 block px-3 py-2 rounded-md text-base font-bold">ARCHIVES</a>
+                <a href="#future"
+                    class="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Future</a>
             </div>
         </div>
     </nav>
