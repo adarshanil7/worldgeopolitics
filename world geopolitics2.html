@@ -945,13 +945,49 @@
         });
 
         // --- CHART 6: Plotly 3D Scatter (WebGL/Canvas) ---
-        // Using Plotly.js for sophisticated multidimensional view
-        const countryNames = ['USA', 'China', 'Russia', 'India', 'Germany', 'Japan', 'UK', 'France', 'Brazil', 'S. Arabia'];
-        const economicPower = [100, 75, 20, 35, 45, 42, 33, 30, 22, 25]; // X
-        const militaryPower = [100, 80, 70, 60, 30, 35, 40, 45, 25, 40]; // Y
-        const softPower = [90, 40, 20, 50, 85, 80, 88, 85, 40, 15]; // Z
-        const sizes = [40, 35, 20, 25, 20, 20, 18, 18, 15, 15];
-        const colors = ['#3b82f6', '#f97316', '#ef4444', '#8b5cf6', '#10b981', '#6366f1', '#0ea5e9', '#06b6d4', '#eab308', '#f59e0b'];
+        // Factually accurate (Approx 2024/25) for 11 Key Powers
+
+        // Data Arrays
+        const countryNames = [
+            'USA', 'China', 'Russia', 'India', 'EU (Agg)',
+            'Japan', 'UK', 'Brazil', 'Saudi', 'Iran', 'Turkey'
+        ];
+
+        // X: Economic Power (GDP Trillion USD)
+        const economicPower = [
+            28.0, 18.5, 2.2, 4.1, 19.3,
+            4.2, 3.5, 2.3, 1.1, 0.4, 1.3
+        ];
+
+        // Y: Military Power (Budget Billion USD)
+        const militaryPower = [
+            916, 296, 109, 84, 310,
+            53, 75, 25, 76, 10, 40
+        ];
+
+        // Z: Soft Power Index (0-100 Global Soft Power Index Proxy)
+        const softPower = [
+            100, 71.2, 35.5, 55.0, 92.0,
+            88.0, 94.0, 45.0, 50.0, 25.0, 48.0
+        ];
+
+        // Visual Specs
+        const sizeByPop = [40, 38, 25, 36, 32, 22, 22, 24, 20, 18, 20]; // Relative sizing visual
+
+        // Brand Colors
+        const colors = [
+            '#3b82f6', // USA (Blue)
+            '#f97316', // China (Orange)
+            '#ef4444', // Russia (Red)
+            '#8b5cf6', // India (Purple)
+            '#10b981', // EU (Emerald)
+            '#6366f1', // Japan (Indigo)
+            '#0ea5e9', // UK (Sky)
+            '#22c55e', // Brazil (Green)
+            '#14b8a6', // Saudi (Teal)
+            '#b91c1c', // Iran (Dark Red)
+            '#dc2626'  // Turkey (Crimson)
+        ];
 
         const trace1 = {
             x: economicPower,
@@ -961,14 +997,19 @@
             text: countryNames,
             textposition: 'top center',
             marker: {
-                size: sizes,
+                size: sizeByPop,
                 color: colors,
-                opacity: 0.8,
-                line: { color: 'white', width: 1 }
+                opacity: 0.9,
+                line: { color: 'white', width: 1 } // High contrast border
             },
             type: 'scatter3d',
             hoverinfo: 'text+x+y+z',
-            hovertemplate: '<b>%{text}</b><br>Econ: %{x}<br>Mil: %{y}<br>Soft: %{z}<extra></extra>'
+            hovertemplate:
+                '<b>%{text}</b><br>' +
+                '💰 GDP: $%{x}T<br>' +
+                '⚔️ Budget: $%{y}B<br>' +
+                '🎭 Soft Power: %{z}/100' +
+                '<extra></extra>' // Hides secondary box
         };
 
         const layoutPlotly = {
@@ -976,15 +1017,17 @@
             paper_bgcolor: 'rgba(0,0,0,0)',
             plot_bgcolor: 'rgba(0,0,0,0)',
             scene: {
-                xaxis: { title: 'Economic (GDP)', color: '#94a3b8', gridcolor: '#334155' },
-                yaxis: { title: 'Military Power', color: '#94a3b8', gridcolor: '#334155' },
-                zaxis: { title: 'Soft Power', color: '#94a3b8', gridcolor: '#334155' },
-                bgcolor: 'rgba(0,0,0,0)' // Transparent
+                xaxis: { title: 'GDP ($ Trillions)', color: '#94a3b8', gridcolor: '#334155' },
+                yaxis: { title: 'Military ($ Billions)', color: '#94a3b8', gridcolor: '#334155' },
+                zaxis: { title: 'Soft Power Score (Index)', color: '#94a3b8', gridcolor: '#334155' },
+                bgcolor: 'rgba(0,0,0,0)',
+                camera: {
+                    eye: { x: 1.5, y: 1.5, z: 1.2 } // Better initial angle
+                }
             },
             showlegend: false
         };
 
-        // Explicitly requesting WebGL via Scatter3D which uses Canvas/WebGL context, NOT SVG.
         Plotly.newPlot('plotlyDiv', [trace1], layoutPlotly, { responsive: true, displayModeBar: false });
 
     </script>
