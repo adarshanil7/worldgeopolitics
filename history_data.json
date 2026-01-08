@@ -1,0 +1,520 @@
+[
+    {
+        "slug": "cold_war",
+        "title": "The Iron Curtain",
+        "year_range": "1947 — 1991",
+        "hero_image": "cold_war_berlin_wall.png",
+        "hero_accent": "blue-500",
+        "quote": "\"From Stettin in the Baltic to Trieste in the Adriatic, an iron curtain has descended across the Continent.\" — Churchill",
+        "sections": [
+            {
+                "id": "intro",
+                "title": "I. Two Worlds",
+                "content": "<span class=\"chapter-dropcap\">T</span>he guns of World War II had barely fallen silent when a new, quieter war began. It was not fought with armies on a battlefield, but with spies, diplomacy, and the threat of nuclear annihilation. The world split into two armed camps: the Capitalist West (led by the USA) and the Communist East (led by the USSR). What followed was a 45-year standoff that defined the modern world."
+            },
+            {
+                "id": "containment",
+                "title": "II. The Long Telegram",
+                "content": "In 1946, a US diplomat named <strong>George Kennan</strong> sent an 8,000-word telegram from Moscow. His thesis changed history: The USSR was inherently expansionist and could not be reasoned with. The only strategy was <strong>Containment</strong>—using economic and military pressure to stop the spread of Communism until the Soviet system fell apart from its own internal contradictions."
+            },
+            {
+                "id": "proxy",
+                "title": "III. Fighting in the Shadows",
+                "content": "Because both sides possessed nuclear weapons, a direct war meant mutual suicide (MAD). So they fought <strong>Proxy Wars</strong>. In Korea, Vietnam, Afghanistan, and Angola, the superpowers funded local armies to do the dying for them."
+            },
+            {
+                "id": "collapse",
+                "title": "IV. The Collapse",
+                "content": "Kennan was right. The Soviet economy, burdened by military spending and lack of innovation, began to rot. When <strong>Mikhail Gorbachev</strong> tried to reform it (Glasnost/Perestroika) in the 1980s, the whole structure crumbled. In 1989, the Berlin Wall fell. In 1991, the USSR ceased to exist. The West had won without firing a shot in Europe."
+            }
+        ],
+        "key_figures": [
+            {
+                "name": "Harry S. Truman",
+                "color": "blue-500"
+            },
+            {
+                "name": "Joseph Stalin",
+                "color": "red-500"
+            },
+            {
+                "name": "George Kennan",
+                "color": "slate-500"
+            }
+        ]
+    },
+    {
+        "slug": "vietnam",
+        "title": "The Quagmire",
+        "year_range": "1955 — 1975",
+        "hero_image": "vietnam_jungle_chopper.png",
+        "hero_accent": "green-500",
+        "quote": "\"We are winning, but I don't know who 'we' are anymore.\"",
+        "sections": [
+            {
+                "id": "intro",
+                "title": "I. Into the Jungle",
+                "content": "<span class=\"chapter-dropcap\">I</span>t was a war of helicopters against tunnels. The world's greatest military power descended into the jungles of Southeast Asia to stop Communism, only to find itself trapped in a green hell where the enemy was everywhere and nowhere."
+            },
+            {
+                "id": "domino",
+                "title": "II. The Domino Theory",
+                "content": "This single idea drove American policy for two decades. Vietnam itself was irrelevant to US security, but the *symbolism* of losing it was unacceptable. The US escalated from a few hundred 'advisors' to over 500,000 ground troops."
+            },
+            {
+                "id": "tet",
+                "title": "III. The Tet Offensive",
+                "content": "US Generals promised victory was near. Then, on the Vietnamese New Year (Tet), the Viet Cong launched massive coordinated attacks on over 100 cities. Militarily, the US crushed the offensive. But psychologically, they lost the war. The American public realized they had been lied to."
+            },
+            {
+                "id": "legacy",
+                "title": "IV. The Fall of Saigon",
+                "content": "In 1973, the US withdrew. In 1975, North Vietnamese tanks burst through the gates of the Presidential Palace in Saigon. The long war was over. Vietnam was united under Communism. The Domino Theory was partially wrong; while Laos and Cambodia fell, the rest of Asia did not."
+            }
+        ],
+        "key_figures": [
+            {
+                "name": "Ho Chi Minh",
+                "color": "red-500"
+            },
+            {
+                "name": "Lyndon B. Johnson",
+                "color": "blue-500"
+            },
+            {
+                "name": "Gen. Westmoreland",
+                "color": "blue-500"
+            }
+        ]
+    },
+    {
+        "slug": "cuban_missile",
+        "title": "13 Days",
+        "year_range": "1962",
+        "hero_image": "cuban_missile_crisis_map.png",
+        "hero_accent": "red-500",
+        "quote": "\"We're eyeball to eyeball, and I think the other fellow just blinked.\"",
+        "sections": [
+            {
+                "id": "intro",
+                "title": "I. The Discovery",
+                "content": "<span class=\"chapter-dropcap\">O</span>ctober 1962. A U-2 spy plane flying over Cuba snapped photos that froze the blood of the White House. The Soviets were building nuclear missile sites just 90 miles from Florida."
+            },
+            {
+                "id": "blockade",
+                "title": "II. The Quarantine",
+                "content": "Generals urged JFK to invade. Instead, he ordered a naval 'Quarantine' (blockade) of Cuba. It was a high-stakes gamble. If a Soviet ship tried to run the blockade, World War III would begin."
+            },
+            {
+                "id": "climax",
+                "title": "III. The Crisis",
+                "content": "For 13 days, the world held its breath. US forces went to DEFCON 2. A Soviet submarine captain, thinking war had started, almost fired a nuclear torpedo but was stopped by a fellow officer, Vasili Arkhipov."
+            },
+            {
+                "id": "resolution",
+                "title": "IV. The Deal",
+                "content": "Secretly, RFK met with the Soviet ambassador. They cut a deal: The Soviets would remove missiles from Cuba if the US promised not to invade Cuba (and secretly removed US missiles from Turkey). The world stepped back from the brink."
+            }
+        ],
+        "key_figures": [
+            {
+                "name": "John F. Kennedy",
+                "color": "blue-500"
+            },
+            {
+                "name": "Nikita Khrushchev",
+                "color": "red-500"
+            },
+            {
+                "name": "Fidel Castro",
+                "color": "green-500"
+            }
+        ]
+    },
+    {
+        "slug": "space_race",
+        "title": "The High Frontier",
+        "year_range": "1955 — 1975",
+        "hero_image": "space_race_moon_landing.png",
+        "hero_accent": "indigo-500",
+        "quote": "\"That's one small step for [a] man, one giant leap for mankind.\"",
+        "sections": [
+            {
+                "id": "intro",
+                "title": "I. Sputnik Shock",
+                "content": "<span class=\"chapter-dropcap\">I</span>t began with a beep. In 1957, the USSR launched <strong>Sputnik</strong>, the first artificial satellite. Americans were terrified. If the Soviets could put a ball in space, they could drop a nuke on New York."
+            },
+            {
+                "id": "gagarin",
+                "title": "II. First Man",
+                "content": "The Soviets kept winning. In 1961, <strong>Yuri Gagarin</strong> became the first human in space. Humiliated, JFK made a bold promise: The US would land a man on the Moon before the decade was out."
+            },
+            {
+                "id": "apollo",
+                "title": "III. Apollo",
+                "content": "The Apollo program was the largest peacetime technological mobilization in history. It cost $25 billion (in 1960s money) and employed 400,000 people. Tragedy struck with Apollo 1, but they pushed on."
+            },
+            {
+                "id": "moon",
+                "title": "IV. Eagle Has Landed",
+                "content": "July 20, 1969. 600 million people watched on TV as Neil Armstrong took that historic step. The US had won the race. The Soviet lunar program collapsed in secrecy."
+            }
+        ],
+        "key_figures": [
+            {
+                "name": "Neil Armstrong",
+                "color": "blue-500"
+            },
+            {
+                "name": "Yuri Gagarin",
+                "color": "red-500"
+            },
+            {
+                "name": "Wernher von Braun",
+                "color": "slate-500"
+            }
+        ]
+    },
+    {
+        "slug": "israel_palestine",
+        "title": "The Holy Land",
+        "year_range": "1948 — PRESENT",
+        "hero_image": "jerusalem_conflict.png",
+        "hero_accent": "red-500",
+        "quote": "\"Two people, one land, three faiths.\"",
+        "sections": [
+            {
+                "id": "intro",
+                "title": "I. The Partition",
+                "content": "After the Holocaust, the world agreed the Jews needed a homeland. The UN partitioned British Palestine. The Jews accepted; the Arabs rejected it. In 1948, Israel declared independence, and five Arab armies attacked."
+            },
+            {
+                "id": "war",
+                "title": "II. The Six Day War",
+                "content": "1967 changed everything. In a preemptive strike, Israel defeated Egypt, Syria, and Jordan in just six days, capturing the West Bank, Gaza, Golan Heights, and East Jerusalem. The Occupation began."
+            },
+            {
+                "id": "peace",
+                "title": "III. Broken Promises",
+                "content": "The Oslo Accords (1993) promised peace and a Palestinian state. But extremists on both sides (Hamas terror, Israeli assassin of Rabin) killed the process. Settlement expansion continued."
+            },
+            {
+                "id": "now",
+                "title": "IV. The Forever War",
+                "content": "Decades of failure led to the Second Intifada, the rise of Hamas, and the horrors of October 7, 2023. The conflict remains the world's most intractable wound."
+            }
+        ],
+        "key_figures": [
+            {
+                "name": "Yitzhak Rabin",
+                "color": "blue-500"
+            },
+            {
+                "name": "Yasser Arafat",
+                "color": "green-500"
+            },
+            {
+                "name": "Benjamin Netanyahu",
+                "color": "blue-800"
+            }
+        ]
+    },
+    {
+        "slug": "war_on_terror",
+        "title": "The Forever War",
+        "year_range": "2001 — 2021",
+        "hero_image": "military_drone_strike.png",
+        "hero_accent": "orange-500",
+        "quote": "\"Either you are with us, or you are with the terrorists.\"",
+        "sections": [
+            {
+                "id": "intro",
+                "title": "I. 9/11",
+                "content": "On a clear Tuesday morning, the world changed. 19 hijackers flew planes into the Twin Towers and the Pentagon. Nearly 3,000 died. America demanded justice."
+            },
+            {
+                "id": "afghanistan",
+                "title": "II. Afghanistan",
+                "content": "The Taliban refused to hand over Osama bin Laden. The US invaded. It would become America's longest war, lasting 20 years."
+            },
+            {
+                "id": "iraq",
+                "title": "III. The Iraq Mistake",
+                "content": "In 2003, based on faulty intelligence about WMDs, the US invaded Iraq to topple Saddam Hussein. It unleashed chaos, insurgency, and eventually ISIS. It broke the Middle East."
+            },
+            {
+                "id": "end",
+                "title": "IV. The Withdrawal",
+                "content": "In 2021, the US left Afghanistan in a chaotic airlift. The Taliban returned to power instantly. The War on Terror cost $8 trillion and 900,000 lives."
+            }
+        ],
+        "key_figures": [
+            {
+                "name": "George W. Bush",
+                "color": "blue-500"
+            },
+            {
+                "name": "Osama bin Laden",
+                "color": "red-500"
+            },
+            {
+                "name": "Saddam Hussein",
+                "color": "green-800"
+            }
+        ]
+    },
+    {
+        "slug": "india_partition",
+        "title": "The Great Divide",
+        "year_range": "1947",
+        "hero_image": "india_partition_train.png",
+        "hero_accent": "purple-500",
+        "quote": "\"A moment comes, which comes but rarely in history, when we step out from the old to the new.\"",
+        "sections": [
+            {
+                "id": "intro",
+                "title": "I. The Exit",
+                "content": "It was the end of the British Empire. Bankrupt after WWII, Britain rushed to leave. Religious tensions boiled. Lord Mountbatten decided to cut the country in two."
+            },
+            {
+                "id": "line",
+                "title": "II. The Radcliffe Line",
+                "content": "Cyril Radcliffe, a man who had never been to India, drew the border in five weeks. He bisected villages and rivers. The map was kept secret until after independence."
+            },
+            {
+                "id": "blood",
+                "title": "III. The Bloodbath",
+                "content": "15 million people fled in opposite directions. Trains arrived full of corpses. Up to 2 million died in the communal violence."
+            },
+            {
+                "id": "kashmir",
+                "title": "IV. Kashmir",
+                "content": "The Princely State of Kashmir was left in limbo. It became the cause of four wars and remains a nuclear flashpoint."
+            }
+        ],
+        "key_figures": [
+            {
+                "name": "Jawaharlal Nehru",
+                "color": "orange-500"
+            },
+            {
+                "name": "M.A. Jinnah",
+                "color": "green-500"
+            },
+            {
+                "name": "Lord Mountbatten",
+                "color": "slate-500"
+            }
+        ]
+    },
+    {
+        "slug": "korea",
+        "title": "The Forgotten War",
+        "year_range": "1950 — PRESENT",
+        "hero_image": "korea_dmz_night.png",
+        "hero_accent": "blue-500",
+        "quote": "\"Technically, the war never ended.\"",
+        "sections": [
+            {
+                "id": "intro",
+                "title": "I. 38th Parallel",
+                "content": "Korea was split by the US and USSR after WWII. In 1950, Kim Il-sung's North invaded the South."
+            },
+            {
+                "id": "invasion",
+                "title": "II. The Seesaw",
+                "content": "The North nearly won. Then MacArthur landed at Incheon and nearly conquered the North. Then China entered and pushed back. It was a bloody seesaw."
+            },
+            {
+                "id": "stalemate",
+                "title": "III. Stalemate",
+                "content": "The war bogged down near the original border. After 3 years and millions of deaths, an Armistice was signed. No Peace Treaty."
+            },
+            {
+                "id": "today",
+                "title": "IV. Night and Day",
+                "content": "Today, South Korea is a global tech giant. North Korea is a hermit kingdom. The DMZ remains the most heavily fortified border on earth."
+            }
+        ],
+        "key_figures": [
+            {
+                "name": "Kim Il-sung",
+                "color": "red-500"
+            },
+            {
+                "name": "Douglas MacArthur",
+                "color": "blue-500"
+            },
+            {
+                "name": "Mao Zedong",
+                "color": "red-600"
+            }
+        ]
+    },
+    {
+        "slug": "chernobyl",
+        "title": "The Invisible Enemy",
+        "year_range": "1986",
+        "hero_image": "chernobyl_reactor_glow.png",
+        "hero_accent": "emerald-500",
+        "quote": "\"1:23:45 AM. The moment the atom split the empire.\"",
+        "sections": [
+            {
+                "id": "intro",
+                "title": "I. The Explosion",
+                "content": "A safety test gone wrong. Reactor 4 explode, releasing 400x the radiation of Hiroshima."
+            },
+            {
+                "id": "lies",
+                "title": "II. The Lies",
+                "content": "The USSR tried to hide it. They didn't evacuate Pripyat for 36 hours. Sweden detected the radiation first."
+            },
+            {
+                "id": "liquidators",
+                "title": "III. The Liquidators",
+                "content": "600,000 men were sent to clean it up. They shoveled radioactive graphite by hand. They saved Europe."
+            },
+            {
+                "id": "legacy",
+                "title": "IV. Collapse",
+                "content": "Gorbachev said Chernobyl was the true cause of the USSR's collapse. It destroyed trust in the system."
+            }
+        ],
+        "key_figures": [
+            {
+                "name": "Valery Legasov",
+                "color": "slate-500"
+            },
+            {
+                "name": "Boris Shcherbina",
+                "color": "red-500"
+            },
+            {
+                "name": "Mikhail Gorbachev",
+                "color": "red-800"
+            }
+        ]
+    },
+    {
+        "slug": "hiroshima",
+        "title": "The Sun Rises Twice",
+        "year_range": "1945",
+        "hero_image": "hiroshima_mushroom_cloud.png",
+        "hero_accent": "red-500",
+        "quote": "\"Now I am become Death, the destroyer of worlds.\"",
+        "sections": [
+            {
+                "id": "intro",
+                "title": "I. The Decision",
+                "content": "To end WWII without a land invasion, Truman authorized the bomb. On Aug 6, 1945, the Enola Gay dropped Little Boy."
+            },
+            {
+                "id": "horror",
+                "title": "II. Ground Zero",
+                "content": "The city was vaporized. 70,000 died instantly. Shadows were burned into walls."
+            },
+            {
+                "id": "nagasaki",
+                "title": "III. Nagasaki",
+                "content": "Japan didn't surrender. Three days later, Fat Man fell on Nagasaki. The Emperor finally surrendered."
+            },
+            {
+                "id": "age",
+                "title": "IV. The Atomic Age",
+                "content": "The genie was out of the bottle. Humanity now had the power to destroy itself."
+            }
+        ],
+        "key_figures": [
+            {
+                "name": "J. Robert Oppenheimer",
+                "color": "slate-500"
+            },
+            {
+                "name": "Harry S. Truman",
+                "color": "blue-500"
+            },
+            {
+                "name": "Emperor Hirohito",
+                "color": "red-800"
+            }
+        ]
+    },
+    {
+        "slug": "d_day",
+        "title": "The Invasion",
+        "year_range": "1944",
+        "hero_image": "dday_normandy_landing.png",
+        "hero_accent": "slate-500",
+        "quote": "\"The eyes of the world are upon you.\"",
+        "sections": [
+            {
+                "id": "intro",
+                "title": "I. Fortress Europe",
+                "content": "Hitler had built the Atlantic Wall. The Allies had to break it to liberate Europe."
+            },
+            {
+                "id": "landing",
+                "title": "II. June 6",
+                "content": "156,000 men hit the beaches of Normandy. Omaha was a slaughterhouse. But they held."
+            },
+            {
+                "id": "breakout",
+                "title": "III. Breakout",
+                "content": "With the beachhead secured, the Allies poured in. Paris was liberated in August. The race to Berlin was on."
+            }
+        ],
+        "key_figures": [
+            {
+                "name": "Dwight D. Eisenhower",
+                "color": "green-700"
+            },
+            {
+                "name": "Erwin Rommel",
+                "color": "slate-600"
+            },
+            {
+                "name": "Winston Churchill",
+                "color": "blue-800"
+            }
+        ]
+    },
+    {
+        "slug": "berlin_wall",
+        "title": "The Wall Falls",
+        "year_range": "1989",
+        "hero_image": "berlin_wall_fall_graffiti.png",
+        "hero_accent": "blue-500",
+        "quote": "\"Mr. Gorbachev, tear down this wall!\"",
+        "sections": [
+            {
+                "id": "intro",
+                "title": "I. The Divide",
+                "content": "For 28 years, the Wall split Berlin and the world. It was a prison."
+            },
+            {
+                "id": "mistake",
+                "title": "II. The Mistake",
+                "content": "Nov 9, 1989. A bungled press conference led people to believe the border was open. Guards stood aside."
+            },
+            {
+                "id": "reunion",
+                "title": "III. Reunion",
+                "content": "Crowds danced on the wall. Europe was whole again."
+            }
+        ],
+        "key_figures": [
+            {
+                "name": "Ronald Reagan",
+                "color": "blue-500"
+            },
+            {
+                "name": "Mikhail Gorbachev",
+                "color": "red-500"
+            },
+            {
+                "name": "Günter Schabowski",
+                "color": "slate-500"
+            }
+        ]
+    }
+]
