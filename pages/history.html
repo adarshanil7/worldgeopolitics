@@ -448,211 +448,332 @@
             </div>
         </section>
 
-    </main>
+        <!-- CASE STUDY 11: HIROSHIMA & NAGASAKI -->
+        <section class="case-card bg-slate-800/50 rounded-2xl overflow-hidden p-1">
+            <div class="grid grid-cols-1 lg:grid-cols-2">
+                <div class="p-8 lg:p-12 space-y-8 order-2 lg:order-1">
+                    <div>
+                        <h3 class="text-xl font-bold text-blue-400 mb-2">The Day the Sun Rose Twice</h3>
+                        <p class="text-slate-300 text-sm leading-relaxed">
+                            August 1945. To force Japan's surrender without a bloody land invasion, the US dropped two
+                            atomic bombs. "Little Boy" on Hiroshima and "Fat Man" on Nagasaki.
+                        </p>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold text-red-500 mb-2">Outcome: <span class="text-white">The Nuclear
+                                Age Begins</span></h3>
+                        <p class="text-slate-300 text-sm leading-relaxed">
+                            Japan surrendered, ending WWII. But it changed the world forever. Humanity now possessed the
+                            power to destroy itself. This sparked the Cold War arms race.
+                        </p>
+                    </div>
+                    <div class="bg-slate-900 p-6 rounded-xl border border-slate-700">
+                        <h4 class="text-xs font-bold text-slate-400 mb-4 uppercase tracking-widest text-center">
+                            Estimated Death Toll (Interactive)</h4>
+                        <div class="relative h-48 w-full">
+                            <canvas id="hiroshimaChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+                <div class="h-96 lg:h-auto bg-cover bg-center relative order-1 lg:order-2"
+                    style="background-image: url('../assets/images/hiroshima_mushroom_cloud.png');">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-900 to-transparent"></div>
+                    <div class="absolute bottom-0 left-0 p-8">
+                        <div class="flex items-center gap-3 mb-2">
+                            <span class="bg-slate-600 text-white text-xs font-bold px-2 py-1 rounded">1945</span>
+                            <span class="text-slate-300 text-sm font-mono">JAPAN</span>
+                        </div>
+                        <h2 class="text-4xl font-bold text-white brand-font">HIROSHIMA</h2>
+                        <p class="text-slate-400 mt-2">Dawn of the Atomic Age</p>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-    <footer class="bg-slate-900 py-8 text-center border-t border-slate-800 mt-20">
-        <p class="text-slate-500 text-sm">Geopolitics 101 created by Adarsh A for educational purposes | &copy; 2026 All
-            Rights Reserved.</p>
-    </footer>
+        <!-- CASE STUDY 12: FALL OF THE BERLIN WALL -->
+        <section class="case-card bg-slate-800/50 rounded-2xl overflow-hidden p-1">
+            <div class="grid grid-cols-1 lg:grid-cols-2">
+                <div class="h-96 lg:h-auto bg-cover bg-center relative"
+                    style="background-image: url('../assets/images/berlin_wall_fall_graffiti.png');">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-900 to-transparent"></div>
+                    <div class="absolute bottom-0 left-0 p-8">
+                        <div class="flex items-center gap-3 mb-2">
+                            <span class="bg-blue-600 text-white text-xs font-bold px-2 py-1 rounded">1989</span>
+                            <span class="text-slate-300 text-sm font-mono">GERMANY</span>
+                        </div>
+                        <h2 class="text-4xl font-bold text-white brand-font">THE WALL FALLS</h2>
+                        <p class="text-slate-400 mt-2">The Night of Freedom</p>
+                    </div>
+                </div>
+                <div class="p-8 lg:p-12 space-y-8">
+                    <div>
+                        <h3 class="text-xl font-bold text-blue-400 mb-2">The Story</h3>
+                        <p class="text-slate-300 text-sm leading-relaxed">
+                            For 28 years, a concrete wall divided Berlin (and the world) into East (Communist) and West
+                            (Democratic). People were shot trying to cross it. In 1989, peaceful protests and a
+                            bureaucratic mistake led guards to open the gates.
+                        </p>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold text-emerald-400 mb-2">The Result</h3>
+                        <p class="text-slate-300 text-sm leading-relaxed">
+                            Thousands climbed the wall in joy. It wasn't just a German event; it signaled the end of
+                            Soviet power in Europe. Two years later, the USSR collapsed.
+                        </p>
+                    </div>
+                    <div class="bg-slate-900 p-6 rounded-xl border border-slate-700">
+                        <h4 class="text-xs font-bold text-indigo-400 mb-4 uppercase tracking-widest text-center">
+                            Economic Gap (GDP Per Capita 1989)</h4>
+                        <div class="relative h-48 w-full">
+                            <canvas id="berlinChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-    <!-- Chart Scripts -->
-    <script>
-        Chart.defaults.color = '#94a3b8';
-        Chart.defaults.font.family = "'Roboto', sans-serif";
+        <footer class="bg-slate-900 py-8 text-center border-t border-slate-800 mt-20">
+            <p class="text-slate-500 text-sm">Geopolitics 101 created by Adarsh A for educational purposes | &copy; 2026
+                All
+                Rights Reserved.</p>
+        </footer>
 
-        // 1. NUKE CHART (Cold War)
-        new Chart(document.getElementById('nukeChart'), {
-            type: 'line',
-            data: {
-                labels: ['1945', '1955', '1965', '1975', '1985', '1995', '2005', '2024'],
-                datasets: [
-                    {
-                        label: 'USA',
-                        data: [6, 2400, 31000, 27000, 23000, 11000, 10000, 3700],
-                        borderColor: '#3b82f6',
-                        backgroundColor: '#3b82f6',
-                        tension: 0.4
-                    },
-                    {
-                        label: 'USSR/Russia',
-                        data: [0, 200, 6000, 19000, 39000, 30000, 16000, 4489],
-                        borderColor: '#ef4444',
-                        backgroundColor: '#ef4444',
-                        tension: 0.4
-                    }
-                ]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                scales: { y: { display: false } },
-                plugins: { legend: { position: 'bottom' } }
-            }
-        });
+        <!-- Chart Scripts -->
+        <script>
+            Chart.defaults.color = '#94a3b8';
+            Chart.defaults.font.family = "'Roboto', sans-serif";
 
-        // 2. CUBA CHART (DEFCON)
-        new Chart(document.getElementById('cubaChart'), {
-            type: 'line',
-            data: {
-                labels: ['Oct 14', 'Oct 22', 'Oct 24', 'Oct 25', 'Oct 26', 'Oct 27', 'Oct 28'],
-                datasets: [{
-                    label: 'DEFCON Level (Lower is Worse)',
-                    data: [5, 3, 2, 2, 2, 2, 4], // 2 is closest to war
-                    borderColor: '#f97316',
-                    backgroundColor: 'rgba(249, 115, 22, 0.1)',
-                    fill: true,
-                    stepped: true
-                }]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                scales: {
-                    y: { reverse: true, min: 1, max: 5, tickets: { stepSize: 1 } } // DEFCON logic
+            // 1. NUKE CHART (Cold War)
+            new Chart(document.getElementById('nukeChart'), {
+                type: 'line',
+                data: {
+                    labels: ['1945', '1955', '1965', '1975', '1985', '1995', '2005', '2024'],
+                    datasets: [
+                        {
+                            label: 'USA',
+                            data: [6, 2400, 31000, 27000, 23000, 11000, 10000, 3700],
+                            borderColor: '#3b82f6',
+                            backgroundColor: '#3b82f6',
+                            tension: 0.4
+                        },
+                        {
+                            label: 'USSR/Russia',
+                            data: [0, 200, 6000, 19000, 39000, 30000, 16000, 4489],
+                            borderColor: '#ef4444',
+                            backgroundColor: '#ef4444',
+                            tension: 0.4
+                        }
+                    ]
                 },
-                plugins: { legend: { display: false } }
-            }
-        });
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: { y: { display: false } },
+                    plugins: { legend: { position: 'bottom' } }
+                }
+            });
 
-        // 3. VIETNAM CHART (Troops)
-        new Chart(document.getElementById('vietnamChart'), {
-            type: 'bar',
-            data: {
-                labels: ['1960', '1962', '1964', '1966', '1968', '1970', '1972'],
-                datasets: [{
-                    label: 'US Troops in Vietnam',
-                    data: [900, 11000, 23000, 385000, 536000, 334000, 24000],
-                    backgroundColor: '#16a34a'
-                }]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                scales: { y: { display: false } },
-                plugins: { legend: { display: false } }
-            }
-        });
+            // 2. CUBA CHART (DEFCON)
+            new Chart(document.getElementById('cubaChart'), {
+                type: 'line',
+                data: {
+                    labels: ['Oct 14', 'Oct 22', 'Oct 24', 'Oct 25', 'Oct 26', 'Oct 27', 'Oct 28'],
+                    datasets: [{
+                        label: 'DEFCON Level (Lower is Worse)',
+                        data: [5, 3, 2, 2, 2, 2, 4], // 2 is closest to war
+                        borderColor: '#f97316',
+                        backgroundColor: 'rgba(249, 115, 22, 0.1)',
+                        fill: true,
+                        stepped: true
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: { reverse: true, min: 1, max: 5, tickets: { stepSize: 1 } } // DEFCON logic
+                    },
+                    plugins: { legend: { display: false } }
+                }
+            });
 
-        // 4. TERROR COST (Trillions)
-        new Chart(document.getElementById('terrorChart'), {
-            type: 'doughnut',
-            data: {
-                labels: ['Iraq/Syria', 'Afghanistan', 'Homeland Security', 'Veterans Care', 'Other'],
-                datasets: [{
-                    data: [2.0, 2.3, 1.1, 2.5, 0.1], // Trillions
-                    backgroundColor: ['#ef4444', '#f97316', '#3b82f6', '#10b981', '#64748b']
-                }]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                plugins: { legend: { position: 'right' } }
-            }
-        });
+            // 3. VIETNAM CHART (Troops)
+            new Chart(document.getElementById('vietnamChart'), {
+                type: 'bar',
+                data: {
+                    labels: ['1960', '1962', '1964', '1966', '1968', '1970', '1972'],
+                    datasets: [{
+                        label: 'US Troops in Vietnam',
+                        data: [900, 11000, 23000, 385000, 536000, 334000, 24000],
+                        backgroundColor: '#16a34a'
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: { y: { display: false } },
+                    plugins: { legend: { display: false } }
+                }
+            });
 
-        // 5. KOREA GDP
-        new Chart(document.getElementById('koreaChart'), {
-            type: 'bar',
-            data: {
-                labels: ['1970', '1990', '2010', '2023'],
-                datasets: [
-                    { label: 'South', data: [275, 6500, 23000, 33000], backgroundColor: '#3b82f6' },
-                    { label: 'North', data: [260, 900, 600, 650], backgroundColor: '#ef4444' }
-                ]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                scales: { y: { display: false } },
-                plugins: { legend: { position: 'bottom' } }
-            }
-        });
+            // 4. TERROR COST (Trillions)
+            new Chart(document.getElementById('terrorChart'), {
+                type: 'doughnut',
+                data: {
+                    labels: ['Iraq/Syria', 'Afghanistan', 'Homeland Security', 'Veterans Care', 'Other'],
+                    datasets: [{
+                        data: [2.0, 2.3, 1.1, 2.5, 0.1], // Trillions
+                        backgroundColor: ['#ef4444', '#f97316', '#3b82f6', '#10b981', '#64748b']
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: { legend: { position: 'right' } }
+                }
+            });
 
-        // 6. ISRAEL TIMELINE
-        new Chart(document.getElementById('israelChart'), {
-            type: 'line',
-            data: {
-                labels: ['1948', '1967', '1973', '1982', '2006', '2014', '2023'],
-                datasets: [{
-                    label: 'Intensity',
-                    data: [10, 9, 10, 6, 7, 6, 10],
-                    borderColor: '#10b981',
-                    pointBackgroundColor: '#ef4444',
-                    pointRadius: 6,
-                    fill: true,
-                    backgroundColor: 'rgba(16, 185, 129, 0.1)'
-                }]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                scales: { y: { display: false } },
-                plugins: { legend: { display: false } }
-            }
-        });
+            // 5. KOREA GDP
+            new Chart(document.getElementById('koreaChart'), {
+                type: 'bar',
+                data: {
+                    labels: ['1970', '1990', '2010', '2023'],
+                    datasets: [
+                        { label: 'South', data: [275, 6500, 23000, 33000], backgroundColor: '#3b82f6' },
+                        { label: 'North', data: [260, 900, 600, 650], backgroundColor: '#ef4444' }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: { y: { display: false } },
+                    plugins: { legend: { position: 'bottom' } }
+                }
+            });
 
-        // 7. SPACE RACE BUDGET
-        new Chart(document.getElementById('spaceChart'), {
-            type: 'line',
-            data: {
-                labels: ['1958', '1960', '1962', '1964', '1966', '1968', '1970', '1972'],
-                datasets: [{
-                    label: 'NASA Budget (% of Federal Spending)',
-                    data: [0.1, 0.5, 1.2, 3.0, 4.4, 2.8, 1.5, 1.0],
-                    borderColor: '#6366f1',
-                    backgroundColor: 'rgba(99, 102, 241, 0.2)',
-                    fill: true,
-                    tension: 0.4
-                }]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                scales: { y: { display: false } },
-                plugins: { legend: { display: false } }
-            }
-        });
+            // 6. ISRAEL TIMELINE
+            new Chart(document.getElementById('israelChart'), {
+                type: 'line',
+                data: {
+                    labels: ['1948', '1967', '1973', '1982', '2006', '2014', '2023'],
+                    datasets: [{
+                        label: 'Intensity',
+                        data: [10, 9, 10, 6, 7, 6, 10],
+                        borderColor: '#10b981',
+                        pointBackgroundColor: '#ef4444',
+                        pointRadius: 6,
+                        fill: true,
+                        backgroundColor: 'rgba(16, 185, 129, 0.1)'
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: { y: { display: false } },
+                    plugins: { legend: { display: false } }
+                }
+            });
 
-        // 8. D-DAY LANDINGS
-        new Chart(document.getElementById('ddayChart'), {
-            type: 'bar',
-            data: {
-                labels: ['Utah (US)', 'Omaha (US)', 'Gold (UK)', 'Juno (CA)', 'Sword (UK)'],
-                datasets: [{
-                    label: 'Troops Landed',
-                    data: [23000, 34000, 25000, 21000, 29000],
-                    backgroundColor: ['#3b82f6', '#1d4ed8', '#ef4444', '#ef4444', '#ef4444']
-                }]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                scales: { y: { display: false } },
-                plugins: { legend: { display: false } }
-            }
-        });
+            // 7. SPACE RACE BUDGET
+            new Chart(document.getElementById('spaceChart'), {
+                type: 'line',
+                data: {
+                    labels: ['1958', '1960', '1962', '1964', '1966', '1968', '1970', '1972'],
+                    datasets: [{
+                        label: 'NASA Budget (% of Federal Spending)',
+                        data: [0.1, 0.5, 1.2, 3.0, 4.4, 2.8, 1.5, 1.0],
+                        borderColor: '#6366f1',
+                        backgroundColor: 'rgba(99, 102, 241, 0.2)',
+                        fill: true,
+                        tension: 0.4
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: { y: { display: false } },
+                    plugins: { legend: { display: false } }
+                }
+            });
 
-        // 9. CHERNOBYL RADIATION
-        new Chart(document.getElementById('chernobylChart'), {
-            type: 'bar',
-            data: {
-                labels: ['X-Ray Scan', 'CT Scan', 'Chernobyl Liq.', 'Fatal Dose'],
-                datasets: [{
-                    label: 'Radiation Dose (mSv)',
-                    data: [0.1, 10, 1000, 5000],
-                    backgroundColor: ['#10b981', '#10b981', '#eab308', '#ef4444']
-                }]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                indexAxis: 'y',
-                scales: { x: { type: 'logarithmic' } },
-                plugins: { legend: { display: false } }
-            }
-        });
+            // 8. D-DAY LANDINGS
+            new Chart(document.getElementById('ddayChart'), {
+                type: 'bar',
+                data: {
+                    labels: ['Utah (US)', 'Omaha (US)', 'Gold (UK)', 'Juno (CA)', 'Sword (UK)'],
+                    datasets: [{
+                        label: 'Troops Landed',
+                        data: [23000, 34000, 25000, 21000, 29000],
+                        backgroundColor: ['#3b82f6', '#1d4ed8', '#ef4444', '#ef4444', '#ef4444']
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: { y: { display: false } },
+                    plugins: { legend: { display: false } }
+                }
+            });
 
-    </script>
+            // 9. CHERNOBYL RADIATION
+            new Chart(document.getElementById('chernobylChart'), {
+                type: 'bar',
+                data: {
+                    labels: ['X-Ray Scan', 'CT Scan', 'Chernobyl Liq.', 'Fatal Dose'],
+                    datasets: [{
+                        label: 'Radiation Dose (mSv)',
+                        data: [0.1, 10, 1000, 5000],
+                        backgroundColor: ['#10b981', '#10b981', '#eab308', '#ef4444']
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    indexAxis: 'y',
+                    scales: { x: { type: 'logarithmic' } },
+                    plugins: { legend: { display: false } }
+                }
+            });
+
+            // 10. HIROSHIMA CASUALTIES
+            new Chart(document.getElementById('hiroshimaChart'), {
+                type: 'bar',
+                data: {
+                    labels: ['Hiroshima', 'Nagasaki', 'Tokyo (Firebombing)', 'Dresden'],
+                    datasets: [{
+                        label: 'Estimated Deaths',
+                        data: [140000, 74000, 100000, 25000],
+                        backgroundColor: ['#ef4444', '#f97316', '#dc2626', '#94a3b8']
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: { y: { display: false } },
+                    plugins: { legend: { display: false } }
+                }
+            });
+
+            // 11. BERLIN WALL ECONOMY
+            new Chart(document.getElementById('berlinChart'), {
+                type: 'bar',
+                data: {
+                    labels: ['West Germany', 'East Germany', 'USSR'],
+                    datasets: [{
+                        label: 'GDP Per Capita (1989 USD)',
+                        data: [19000, 9000, 8000],
+                        backgroundColor: ['#3b82f6', '#f43f5e', '#ef4444']
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: { y: { display: false } },
+                    plugins: { legend: { display: false } }
+                }
+            });
+
+        </script>
 
 </body>
 
