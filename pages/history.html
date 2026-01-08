@@ -34,7 +34,41 @@
             border-color: rgba(59, 130, 246, 0.5);
             box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5);
         }
+
+        .timeline-box {
+            border-left: 2px solid #334155;
+            padding-left: 20px;
+            margin-top: 20px;
+            margin-left: 10px;
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 20px;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -25px;
+            top: 5px;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #ef4444;
+            border: 2px solid #0f172a;
+        }
     </style>
+    <script>
+        function toggleTimeline(id) {
+            const el = document.getElementById(id);
+            if (el.classList.contains('hidden')) {
+                el.classList.remove('hidden');
+            } else {
+                el.classList.add('hidden');
+            }
+        }
+    </script>
 </head>
 
 <body class="antialiased">
@@ -105,6 +139,37 @@
                             Nuclear Inventory (Warheads)</h4>
                         <div class="relative h-48 w-full">
                             <canvas id="nukeChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+                <!-- Timeline Section -->
+                <div class="col-span-1 lg:col-span-2 px-8 pb-8 lg:px-12">
+                    <button onclick="toggleTimeline('timeline-coldwar')"
+                        class="text-xs font-bold text-slate-400 hover:text-white uppercase tracking-widest border border-slate-600 px-4 py-2 rounded transition hover:bg-slate-700">📜
+                        View Detailed Timeline</button>
+                    <div id="timeline-coldwar" class="hidden timeline-box border-l-2 border-slate-600 pl-4 mt-4 ml-2">
+                        <div class="timeline-item">
+                            <div class="text-red-400 font-bold">1947</div>
+                            <div class="text-slate-300 text-sm">Truman Doctrine: US pledges to contain Communism.</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="text-blue-400 font-bold">1949</div>
+                            <div class="text-slate-300 text-sm">NATO Military Alliance formed. USSR tests first nuke.
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="text-orange-400 font-bold">1962</div>
+                            <div class="text-slate-300 text-sm">Cuban Missile Crisis: Closest point to nuclear war.
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="text-green-400 font-bold">1989</div>
+                            <div class="text-slate-300 text-sm">Berlin Wall falls. Communism collapses in Eastern
+                                Europe.</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="text-slate-400 font-bold">1991</div>
+                            <div class="text-slate-300 text-sm">Soviet Union dissolves. End of Cold War.</div>
                         </div>
                     </div>
                 </div>
@@ -185,6 +250,36 @@
                         </div>
                     </div>
                 </div>
+                <!-- Timeline Section -->
+                <div class="col-span-1 lg:col-span-2 px-8 pb-8 lg:px-12">
+                    <button onclick="toggleTimeline('timeline-vietnam')"
+                        class="text-xs font-bold text-slate-400 hover:text-white uppercase tracking-widest border border-slate-600 px-4 py-2 rounded transition hover:bg-slate-700">📜
+                        View Detailed Timeline</button>
+                    <div id="timeline-vietnam" class="hidden timeline-box border-l-2 border-slate-600 pl-4 mt-4 ml-2">
+                        <div class="timeline-item">
+                            <div class="text-slate-400 font-bold">1954</div>
+                            <div class="text-slate-300 text-sm">France defeated at Dien Bien Phu. Vietnam divided.</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="text-red-400 font-bold">1964</div>
+                            <div class="text-slate-300 text-sm">Gulf of Tonkin Incident: US begins direct military
+                                intervention.</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="text-orange-400 font-bold">1968</div>
+                            <div class="text-slate-300 text-sm">Tet Offensive: Psychological turning point against the
+                                US war effort.</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="text-blue-400 font-bold">1973</div>
+                            <div class="text-slate-300 text-sm">Paris Peace Accords: US troops withdraw.</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="text-red-500 font-bold">1975</div>
+                            <div class="text-slate-300 text-sm">Fall of Saigon: North Vietnam unifies the country.</div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -205,6 +300,33 @@
                             of Post-9/11 Wars</h4>
                         <div class="relative h-48 w-full">
                             <canvas id="terrorChart"></canvas>
+                        </div>
+                    </div>
+                    <!-- Timeline Section -->
+                    <button onclick="toggleTimeline('timeline-terror')"
+                        class="mt-4 text-xs font-bold text-slate-400 hover:text-white uppercase tracking-widest border border-slate-600 px-4 py-2 rounded transition hover:bg-slate-700">📜
+                        View Detailed Timeline</button>
+                    <div id="timeline-terror" class="hidden timeline-box border-l-2 border-slate-600 pl-4 mt-4 ml-2">
+                        <div class="timeline-item">
+                            <div class="text-red-500 font-bold">2001 (Sept 11)</div>
+                            <div class="text-slate-300 text-sm">Attacks on NYC and DC kill 3,000+.</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="text-blue-400 font-bold">2001 (Oct)</div>
+                            <div class="text-slate-300 text-sm">Invasion of Afghanistan to oust Taliban/Al-Qaeda.</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="text-orange-400 font-bold">2003</div>
+                            <div class="text-slate-300 text-sm">Invasion of Iraq based on WMD intelligence.</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="text-green-400 font-bold">2011</div>
+                            <div class="text-slate-300 text-sm">Osama Bin Laden killed by US Navy SEALs.</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="text-slate-400 font-bold">2021</div>
+                            <div class="text-slate-300 text-sm">Chaotic US withdrawal from Kabul. Taliban returns to
+                                power.</div>
                         </div>
                     </div>
                 </div>
@@ -254,6 +376,28 @@
                             Divergence (GDP Per Capita)</h4>
                         <div class="relative h-48 w-full">
                             <canvas id="koreaChart"></canvas>
+                        </div>
+                    </div>
+                    <!-- Timeline Section -->
+                    <button onclick="toggleTimeline('timeline-korea')"
+                        class="mt-4 text-xs font-bold text-slate-400 hover:text-white uppercase tracking-widest border border-slate-600 px-4 py-2 rounded transition hover:bg-slate-700">📜
+                        View Detailed Timeline</button>
+                    <div id="timeline-korea" class="hidden timeline-box border-l-2 border-slate-600 pl-4 mt-4 ml-2">
+                        <div class="timeline-item">
+                            <div class="text-red-500 font-bold">1950 (Jun)</div>
+                            <div class="text-slate-300 text-sm">North Korea invades South Korea. Seoul falls.</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="text-blue-400 font-bold">1950 (Sep)</div>
+                            <div class="text-slate-300 text-sm">Incheon Landing: UN forces retake Seoul.</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="text-orange-400 font-bold">1950 (Oct)</div>
+                            <div class="text-slate-300 text-sm">China enters the war, pushing UN forces back.</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="text-slate-400 font-bold">1953</div>
+                            <div class="text-slate-300 text-sm">Armistice signed. DMZ created. No peace treaty.</div>
                         </div>
                     </div>
                 </div>
@@ -321,6 +465,30 @@
                             of Major Conflicts</h4>
                         <div class="relative h-48 w-full">
                             <canvas id="israelChart"></canvas>
+                        </div>
+                    </div>
+                    <!-- Timeline Section -->
+                    <button onclick="toggleTimeline('timeline-israel')"
+                        class="mt-4 text-xs font-bold text-slate-400 hover:text-white uppercase tracking-widest border border-slate-600 px-4 py-2 rounded transition hover:bg-slate-700">📜
+                        View Detailed Timeline</button>
+                    <div id="timeline-israel" class="hidden timeline-box border-l-2 border-slate-600 pl-4 mt-4 ml-2">
+                        <div class="timeline-item">
+                            <div class="text-blue-500 font-bold">1948</div>
+                            <div class="text-slate-300 text-sm">War of Independence / The Nakba.</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="text-emerald-400 font-bold">1967</div>
+                            <div class="text-slate-300 text-sm">Six Day War: Israel captures West Bank, Gaza, Golan.
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="text-orange-400 font-bold">1993</div>
+                            <div class="text-slate-300 text-sm">Oslo Accords: Attempt at peace and PLO recognition.
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="text-red-500 font-bold">2023</div>
+                            <div class="text-slate-300 text-sm">Oct 7 Attacks and subsequent War in Gaza.</div>
                         </div>
                     </div>
                 </div>
@@ -487,6 +655,31 @@
                         <p class="text-slate-400 mt-2">Dawn of the Atomic Age</p>
                     </div>
                 </div>
+                <!-- Timeline Section -->
+                <div class="col-span-1 lg:col-span-2 px-8 pb-8 lg:px-12">
+                    <button onclick="toggleTimeline('timeline-hiroshima')"
+                        class="text-xs font-bold text-slate-400 hover:text-white uppercase tracking-widest border border-slate-600 px-4 py-2 rounded transition hover:bg-slate-700">📜
+                        View Detailed Timeline</button>
+                    <div id="timeline-hiroshima" class="hidden timeline-box border-l-2 border-slate-600 pl-4 mt-4 ml-2">
+                        <div class="timeline-item">
+                            <div class="text-orange-400 font-bold">1945 (Jul)</div>
+                            <div class="text-slate-300 text-sm">Trinity Test: First nuclear detonation in New Mexico.
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="text-red-500 font-bold">1945 (Aug 6)</div>
+                            <div class="text-slate-300 text-sm">Hiroshima Bombed ("Little Boy"). 140,000+ deaths.</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="text-red-500 font-bold">1945 (Aug 9)</div>
+                            <div class="text-slate-300 text-sm">Nagasaki Bombed ("Fat Man"). 74,000+ deaths.</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="text-blue-400 font-bold">1945 (Aug 15)</div>
+                            <div class="text-slate-300 text-sm">Emperor Hirohito announces surrender. WWII ends.</div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -526,6 +719,37 @@
                             Economic Gap (GDP Per Capita 1989)</h4>
                         <div class="relative h-48 w-full">
                             <canvas id="berlinChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+                <!-- Timeline Section -->
+                <div class="col-span-1 lg:col-span-2 px-8 pb-8 lg:px-12">
+                    <button onclick="toggleTimeline('timeline-berlin')"
+                        class="text-xs font-bold text-slate-400 hover:text-white uppercase tracking-widest border border-slate-600 px-4 py-2 rounded transition hover:bg-slate-700">📜
+                        View Detailed Timeline</button>
+                    <div id="timeline-berlin" class="hidden timeline-box border-l-2 border-slate-600 pl-4 mt-4 ml-2">
+                        <div class="timeline-item">
+                            <div class="text-red-400 font-bold">1961</div>
+                            <div class="text-slate-300 text-sm">Construction of the Wall begins to stop defections.
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="text-blue-400 font-bold">1963</div>
+                            <div class="text-slate-300 text-sm">JFK speech: "Ich bin ein Berliner".</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="text-orange-400 font-bold">1987</div>
+                            <div class="text-slate-300 text-sm">Reagan speech: "Mr. Gorbachev, tear down this wall!"
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="text-green-400 font-bold">1989 (Nov)</div>
+                            <div class="text-slate-300 text-sm">Miscommunication leads to opening. Crowds demolish the
+                                wall.</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="text-slate-400 font-bold">1990</div>
+                            <div class="text-slate-300 text-sm">German Reunification.</div>
                         </div>
                     </div>
                 </div>

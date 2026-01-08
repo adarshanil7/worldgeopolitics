@@ -165,7 +165,9 @@
                         <a href="#moves"
                             class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Moves</a>
                         <a href="pages/history.html"
-                            class="text-red-400 hover:text-red-300 px-3 py-2 rounded-md text-sm font-bold border border-red-500/30 bg-red-500/10">ARCHIVES</a>
+                            class="text-red-400 hover:text-red-300 px-3 py-2 rounded-md text-sm font-bold border border-red-500/30 bg-red-500/10 flex items-center gap-2">
+                            <span>📂</span> ARCHIVES (LVL 3)
+                        </a>
                         <a href="#future"
                             class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Future</a>
                     </div>
@@ -772,7 +774,7 @@
         // --- CHART 1: GDP (Bar) ---
         // Top 5 Economies (Approx 2024 Estimates in Trillions)
         const ctxGDP = document.getElementById('gdpChart').getContext('2d');
-        const labelsGDP = ['United States', 'China', 'Germany', 'Japan', 'India'];
+        const labelsGDP = ['United States', 'China', 'Germany', 'India', 'Japan'];
         const processedLabelsGDP = labelsGDP.map(wrapLabel);
 
         new Chart(ctxGDP, {
@@ -780,14 +782,14 @@
             data: {
                 labels: processedLabelsGDP,
                 datasets: [{
-                    label: 'GDP (Trillion USD)',
-                    data: [27.9, 18.5, 4.7, 4.2, 4.1],
+                    label: 'GDP (Trillion USD - 2025 Est)',
+                    data: [28.1, 19.2, 4.8, 4.4, 4.1], // Updated: India > Japan
                     backgroundColor: [
                         '#3b82f6', // US Blue
                         '#f97316', // China Orange
                         '#10b981', // Germany Emerald
-                        '#6366f1', // Japan Indigo
-                        '#8b5cf6'  // India Purple
+                        '#8b5cf6', // India Purple (Now 4th)
+                        '#6366f1'  // Japan Indigo (Now 5th)
                     ],
                     borderWidth: 0,
                     borderRadius: 4
