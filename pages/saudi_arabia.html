@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saudi Arabia: The Kingdom - Geopolitics Dossier</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Roboto:wght@300;400;500;700&family=Merriweather:wght@300;400;700&display=swap"
+        rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #0f172a;
+            color: #f1f5f9;
+        }
+
+        .brand-font {
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        .book-font {
+            font-family: 'Merriweather', serif;
+        }
+    </style>
+</head>
+
+<body class="antialiased">
+    <nav class="sticky top-0 z-50 bg-slate-900/95 backdrop-blur border-b border-green-600/50">
+        <div class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="../world geopolitics2.html"
+                class="text-green-500 hover:text-white font-bold flex items-center gap-2"><span>←</span> Dashboard</a>
+            <span class="brand-font text-xl text-white">DOSSIER: <span class="text-green-500">SAUDI ARABIA</span></span>
+        </div>
+    </nav>
+    <header class="relative bg-slate-900 py-12 overflow-hidden border-b border-green-600">
+        <div
+            class="absolute inset-0 opacity-10 bg-[url('https://upload.wikimedia.org/wikipedia/commons/0/0d/Flag_of_Saudi_Arabia.svg')] bg-cover bg-center">
+        </div>
+        <div class="max-w-7xl mx-auto px-4 relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <!-- Left: Text Info -->
+            <div>
+                <div class="text-6xl mb-4">🇸🇦</div>
+                <h1 class="text-5xl md:text-7xl font-black text-white mb-4 brand-font tracking-tight">THE OIL KINGDOM
+                </h1>
+                <p class="text-xl text-green-300 font-light italic mb-6">"Vision 2030: Beyond Petroleum"</p>
+
+                <!-- The Hand -->
+                <div class="bg-slate-800/50 p-4 rounded-xl border border-green-500/30 mb-6">
+                    <h3 class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-3">The Hand (Key Resources)
+                    </h3>
+                    <div class="flex gap-4 text-2xl">
+                        <span title="Oil Price Control (OPEC)">🛢️</span>
+                        <span title="Mecca & Medina (Religious)">☪️</span>
+                        <span title="Sovereign Wealth Fund">💰</span>
+                        <span title="US Security Guarantee">🛡️</span>
+                    </div>
+                </div>
+
+                <div class="flex gap-2 text-sm font-mono text-slate-400">
+                    <span class="border border-slate-600 px-3 py-1 rounded">GDP: $1.1T (19th)</span>
+                    <span class="border border-slate-600 px-3 py-1 rounded">Strategy: Diversification</span>
+                </div>
+            </div>
+
+            <!-- Right: Radar Chart -->
+            <div class="bg-slate-800/50 p-6 rounded-2xl border border-green-500/20 backdrop-blur-sm">
+                <h3 class="text-center text-green-400 font-bold mb-2 brand-font">POWER STATS</h3>
+                <div class="h-64 sm:h-80">
+                    <canvas id="powerRadar"></canvas>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main class="max-w-5xl mx-auto px-4 py-12 space-y-12">
+        </section>
+
+        <section>
+            <h2 class="text-3xl font-bold text-white mb-12 text-center border-b border-slate-700 pb-4">History &
+                Resentment</h2>
+            <div class="relative">
+                <div class="timeline-line hidden md:block"></div>
+
+                <div class="mb-12 flex flex-col md:flex-row items-center justify-between relative group">
+                    <div class="md:w-5/12 text-right pr-8">
+                        <h3 class="text-2xl font-bold text-green-500">1979: The Siege of Mecca</h3>
+                        <p class="text-sm text-slate-500 mb-2">The Conservative Turn</p>
+                        <p class="text-slate-300 book-font">Extremists seized the Grand Mosque. To survive, the Royal
+                            Family empowered clerics and exported Wahhabism. MBS is now trying to reverse this 40-year
+                            legacy.</p>
+                    </div>
+                    <div class="w-8 h-8 rounded-full bg-green-500 border-4 border-slate-900 z-10"></div>
+                    <div class="md:w-5/12 pl-8"></div>
+                </div>
+
+                <div class="mb-12 flex flex-col md:flex-row-reverse items-center justify-between relative group">
+                    <div class="md:w-5/12 text-left pl-8">
+                        <h3 class="text-2xl font-bold text-slate-400">2018-Present: The Respect Deficit</h3>
+                        <p class="text-sm text-slate-500 mb-2">"Not Just a Gas Station"</p>
+                        <p class="text-slate-300 book-font">MBS resents being treated as a US client state or a "pariah"
+                            (Khashoggi). He demands Saudi Arabia be respected as a modern, independent Middle Power.</p>
+                    </div>
+                    <div class="w-8 h-8 rounded-full bg-slate-500 border-4 border-slate-900 z-10"></div>
+                    <div class="md:w-5/12 pr-8"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- RELATIONSHIP MATRIX -->
+        <section class="bg-slate-900 rounded-3xl p-8 border border-slate-700 shadow-2xl">
+            <h2 class="text-3xl font-bold text-white mb-8 border-l-4 border-green-500 pl-4">Relationship Matrix</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- USA: Security -->
+                <div class="bg-slate-800 p-6 rounded-xl border-t-4 border-blue-500">
+                    <div class="flex justify-between items-center mb-4">
+                        <h3 class="text-xl font-bold text-white">🇺🇸 USA</h3>
+                        <span class="text-xs bg-blue-900 text-blue-100 px-2 py-1 rounded">SECURITY GUARANTOR</span>
+                    </div>
+                    <!-- Meter -->
+                    <div class="w-full bg-slate-700 h-4 rounded-full mb-2 relative overflow-hidden">
+                        <div class="bg-gradient-to-r from-blue-600 to-green-400 h-full absolute top-0 left-0"
+                            style="width: 75%"></div>
+                        <div class="absolute top-0 bottom-0 left-1/2 w-0.5 bg-slate-500"></div>
+                    </div>
+                    <div class="flex justify-between text-xs text-slate-400 mb-4">
+                        <span>Hostile</span>
+                        <span>Vital (+75)</span>
+                    </div>
+                    <p class="text-sm text-slate-300 mb-2"><strong>Context:</strong> "Oil for Security." The pact is
+                        fraying as the US produces its own oil, but defense ties remain deep.</p>
+                </div>
+
+                <!-- Iran: Rival -->
+                <div class="bg-slate-800 p-6 rounded-xl border-t-4 border-red-500">
+                    <div class="flex justify-between items-center mb-4">
+                        <h3 class="text-xl font-bold text-white">🇮🇷 IRAN</h3>
+                        <span class="text-xs bg-red-900 text-red-100 px-2 py-1 rounded">REGIONAL RIVAL</span>
+                    </div>
+                    <!-- Meter -->
+                    <div class="w-full bg-slate-700 h-4 rounded-full mb-2 relative overflow-hidden">
+                        <div class="bg-gradient-to-r from-red-600 to-orange-500 h-full absolute top-0 left-0"
+                            style="width: 35%"></div>
+                        <div class="absolute top-0 bottom-0 left-1/2 w-0.5 bg-slate-500"></div>
+                    </div>
+                    <div class="flex justify-between text-xs text-slate-400 mb-4">
+                        <span>Hostile (-65)</span>
+                        <span>Friendly</span>
+                    </div>
+                    <p class="text-sm text-slate-300 mb-2"><strong>Status:</strong> Restoring ties (China mediated), but
+                        deep trust deficit remains over Yemen/Proxies.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SWOT ANALYSIS -->
+        <section class="max-w-7xl mx-auto">
+            <h2 class="text-3xl font-bold text-white mb-8 border-l-4 border-green-500 pl-4">Strategic SWOT</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Strengths -->
+                <div class="bg-slate-800/80 p-6 rounded-xl border border-green-500/30">
+                    <div class="flex items-center gap-3 mb-4">
+                        <span class="text-2xl">💪</span>
+                        <h3 class="text-xl font-bold text-green-400">STRENGTHS</h3>
+                    </div>
+                    <ul class="list-disc list-inside text-slate-300 space-y-2">
+                        <li><strong>Energy:</strong> World's lowest cost of oil production.</li>
+                        <li><strong>Religion:</strong> Custodian of the Two Holy Mosques.</li>
+                        <li><strong>Capital:</strong> Massive PIF wealth fund.</li>
+                    </ul>
+                </div>
+                <!-- Weaknesses -->
+                <div class="bg-slate-800/80 p-6 rounded-xl border border-red-500/30">
+                    <div class="flex items-center gap-3 mb-4">
+                        <span class="text-2xl">⚠️</span>
+                        <h3 class="text-xl font-bold text-red-400">WEAKNESSES</h3>
+                    </div>
+                    <ul class="list-disc list-inside text-slate-300 space-y-2">
+                        <li><strong>Diversification:</strong> Still 70%+ dependent on oil.</li>
+                        <li><strong>Water:</strong> Extreme water scarcity.</li>
+                        <li><strong>Military:</strong> High spending, low combat effectiveness.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="bg-slate-900 rounded-3xl p-8 border border-slate-700 shadow-2xl">
+            <h2 class="text-3xl font-bold text-white mb-8"><span class="text-green-500">📊</span> SITUATION ROOM</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="bg-slate-800 p-4 rounded-xl">
+                    <h3 class="text-center text-slate-400 font-bold mb-4">GDP OIL DEPENDENCY (%)</h3><canvas
+                        id="oilChart"></canvas>
+                </div>
+                <div class="bg-slate-800 p-4 rounded-xl">
+                    <h3 class="text-center text-slate-400 font-bold mb-4">TRADE PARTNERS</h3><canvas
+                        id="tradeChart"></canvas>
+                </div>
+            </div>
+            <script>
+                Chart.defaults.color = '#94a3b8';
+                new Chart(document.getElementById('oilChart'), {
+                    type: 'line',
+                    data: { labels: ['2010', '2015', '2020', '2023', '2030 (Target)'], datasets: [{ label: 'Oil Share', data: [85, 70, 60, 50, 35], borderColor: '#22c55e' }] },
+                    options: { scales: { y: { grid: { color: '#1e293b' } } } }
+                });
+                new Chart(document.getElementById('tradeChart'), {
+                    type: 'doughnut',
+                    data: { labels: ['China', 'India', 'Japan', 'S. Korea', 'USA'], datasets: [{ data: [18, 11, 10, 9, 5], backgroundColor: ['#ef4444', '#f97316', '#eab308', '#3b82f6', '#64748b'], borderWidth: 0 }] },
+                    options: { plugins: { legend: { position: 'bottom' } } }
+                });
+                // Radar Chart
+                new Chart(document.getElementById('powerRadar'), {
+                    type: 'radar',
+                    data: {
+                        labels: ['Economic', 'Military', 'Soft Power', 'Stability', 'Tech', 'Geography'],
+                        datasets: [{
+                            label: 'Saudi Arabia Power Stats',
+                            data: [85, 60, 50, 60, 45, 60],
+                            fill: true,
+                            backgroundColor: 'rgba(34, 197, 94, 0.2)',
+                            borderColor: '#22c55e',
+                            pointBackgroundColor: '#22c55e',
+                            pointBorderColor: '#fff',
+                            pointHoverBackgroundColor: '#fff',
+                            pointHoverBorderColor: '#22c55e'
+                        }]
+                    },
+                    options: {
+                        scales: {
+                            r: {
+                                grid: { color: '#334155' },
+                                angleLines: { color: '#334155' },
+                                pointLabels: { color: '#94a3b8', font: { size: 12, family: 'Orbitron' } },
+                                suggestedMin: 0,
+                                suggestedMax: 100,
+                                ticks: { display: false }
+                            }
+                        },
+                        plugins: { legend: { display: false } }
+                    }
+                });
+            </script>
+        </section>
+    </main>
+
+    <footer class="bg-slate-900 py-8 text-center border-t border-slate-800 mt-20">
+        <p class="text-slate-500 text-sm">Geopolitics 101 created by Adarsh A educational purposes</p>
+    </footer>
+</body>
+
+</html>

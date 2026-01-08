@@ -1,0 +1,973 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Geopolitics 101: The Global Chessboard</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Plotly.js -->
+    <script src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script>
+
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Roboto:wght@300;400;500;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Embedded Palette & Plan -->
+    <!-- 
+        Palette Name: Strategic Command (Vibrant Tech)
+        Hex Codes: 
+        - Background: #0f172a (Slate 900)
+        - Surface: #1e293b (Slate 800)
+        - Primary: #3b82f6 (Blue 500)
+        - Accent: #f97316 (Orange 500)
+        - Success: #10b981 (Emerald 500)
+        - Text: #f1f5f9 (Slate 100)
+        
+        Narrative Plan:
+        1. Hero: Title and Definition of Geopolitics.
+        2. The Players: Economic Power (GDP) visualization.
+        3. The Muscle: Military Spending breakdown.
+        4. Strategy: Hard Power vs Soft Power Radar comparison.
+        5. The Board: Strategic Choke Points (Bubble chart of Trade Vol vs Risk).
+        6. Trends: The Shift from Unipolar to Multipolar world (Line chart).
+        7. 3D Analysis: Plotly WebGL scatter of Power Metrics.
+        8. Conclusion: Summary of future threats.
+
+        Chart Selection Justifications (NO SVG):
+        - GDP -> Bar Chart (Compare) -> Chart.js Canvas.
+        - Military -> Doughnut (Composition) -> Chart.js Canvas.
+        - Strategies -> Radar (Multi-variable Compare) -> Chart.js Canvas.
+        - Choke Points -> Bubble (Relationship/Risk analysis) -> Chart.js Canvas.
+        - Power Correlations -> 3D Scatter -> Plotly WebGL (Canvas).
+        
+        Constraint Check:
+        - NO SVG used.
+        - NO Mermaid JS used.
+        - All Charts wrapped in .chart-container.
+        - Tooltips configured for multiline.
+    -->
+
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #0f172a;
+            color: #f1f5f9;
+        }
+
+        h1,
+        h2,
+        h3,
+        .brand-font {
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #0f172a;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #3b82f6;
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #2563eb;
+        }
+
+        /* Chart Container Strict Styling */
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 100%;
+            /* Controlled by parent grid usually, but capped here */
+            margin-left: auto;
+            margin-right: auto;
+            height: 350px;
+            /* Default height */
+            max-height: 450px;
+        }
+
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 400px;
+            }
+        }
+
+        /* Card Hover Effects */
+        .info-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .info-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(59, 130, 246, 0.3);
+        }
+
+        /* Diagram Styles (CSS Flow) */
+        .flow-step {
+            position: relative;
+        }
+
+        .flow-step:not(:last-child)::after {
+            content: '▼';
+            position: absolute;
+            bottom: -25px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #3b82f6;
+            font-size: 1.2rem;
+        }
+
+        @media (min-width: 768px) {
+            .flow-step:not(:last-child)::after {
+                content: '▶';
+                bottom: 50%;
+                right: -25px;
+                left: auto;
+                top: 50%;
+                transform: translateY(-50%);
+            }
+        }
+    </style>
+</head>
+
+<body class="antialiased selection:bg-orange-500 selection:text-white">
+
+    <!-- Navigation / Progress -->
+    <nav class="sticky top-0 z-50 bg-slate-900/95 backdrop-blur border-b border-slate-700 shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center">
+                    <span class="text-2xl font-bold text-blue-500 brand-font">GEO<span
+                            class="text-orange-500">POLITICS</span> 101</span>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <a href="#intro"
+                            class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Intro</a>
+                        <a href="#power"
+                            class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Power</a>
+                        <a href="#geography"
+                            class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Geography</a>
+                        <a href="#strategy"
+                            class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Strategy</a>
+                        <a href="#moves"
+                            class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Moves</a>
+                        <a href="#future"
+                            class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Future</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-24">
+
+        <!-- 1. HERO SECTION -->
+        <section id="intro" class="text-center space-y-6">
+            <h1 class="text-5xl md:text-7xl font-black text-white tracking-tight">
+                THE GLOBAL <span
+                    class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-orange-500">CHESSBOARD</span>
+            </h1>
+            <p class="text-xl text-slate-400 max-w-3xl mx-auto leading-relaxed">
+                Welcome to the high-stakes world of Geopolitics. It is the study of how
+                <span class="text-orange-400 font-bold">Geography</span>,
+                <span class="text-blue-400 font-bold">Economics</span>, and
+                <span class="text-emerald-400 font-bold">Demography</span>
+                determine the destiny of nations. Understand the game, and you understand the world.
+            </p>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12">
+                <div class="info-card bg-slate-800 p-6 rounded-xl border-t-4 border-blue-500">
+                    <div class="text-4xl mb-3">🌍</div>
+                    <h3 class="text-xl font-bold text-white mb-2">Space</h3>
+                    <p class="text-slate-400 text-sm">Physical territory, resources, climate, and borders define a
+                        nation's potential.</p>
+                </div>
+                <div class="info-card bg-slate-800 p-6 rounded-xl border-t-4 border-orange-500">
+                    <div class="text-4xl mb-3">💰</div>
+                    <h3 class="text-xl font-bold text-white mb-2">Wealth</h3>
+                    <p class="text-slate-400 text-sm">Economic power funds militaries and buys influence. GDP is a
+                        weapon.</p>
+                </div>
+                <div class="info-card bg-slate-800 p-6 rounded-xl border-t-4 border-emerald-500">
+                    <div class="text-4xl mb-3">🤝</div>
+                    <h3 class="text-xl font-bold text-white mb-2">Diplomacy</h3>
+                    <p class="text-slate-400 text-sm">Alliances and soft power multiply a nation's strength beyond its
+                        borders.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. THE PLAYERS (Economics & Military) -->
+        <section id="power">
+            <div class="flex flex-col md:flex-row items-center mb-8">
+                <div class="md:w-2/3">
+                    <h2 class="text-3xl font-bold text-white mb-4 border-l-4 border-blue-500 pl-4">The Heavyweights</h2>
+                    <p class="text-slate-300 mb-4">
+                        In geopolitics, size matters. We measure power primarily through <strong>GDP (Economic
+                            Output)</strong> and <strong>Military Spending</strong>. The US and China are currently the
+                        dominant "Superpowers," creating a bipolar dynamic, though rising powers like India are shifting
+                        us toward a "Multipolar" world.
+                    </p>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <!-- Chart 1: GDP Comparison -->
+                <div class="bg-slate-800 rounded-xl shadow-lg p-6">
+                    <h3 class="text-lg font-semibold text-blue-400 mb-4">Top Global Economies (GDP Trillion USD)</h3>
+                    <p class="text-xs text-slate-400 mb-4">Economic power allows nations to sustain long conflicts and
+                        influence global trade rules.</p>
+                    <div class="chart-container">
+                        <canvas id="gdpChart"></canvas>
+                    </div>
+                </div>
+
+                <!-- Chart 2: Military Spending -->
+                <div class="bg-slate-800 rounded-xl shadow-lg p-6">
+                    <h3 class="text-lg font-semibold text-orange-400 mb-4">Global Defense Budget Share</h3>
+                    <p class="text-xs text-slate-400 mb-4">Money translates to hard power: fleets, aircraft, and cyber
+                        capabilities. Note the US dominance.</p>
+                    <div class="chart-container">
+                        <canvas id="militaryChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. STRATEGY (Hard vs Soft Power) -->
+        <section id="strategy">
+            <h2 class="text-3xl font-bold text-white mb-6 border-l-4 border-orange-500 pl-4">Styles of Influence</h2>
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+
+                <div class="lg:col-span-1 space-y-6">
+                    <div class="bg-slate-800 p-6 rounded-xl">
+                        <h3 class="text-xl font-bold text-white mb-2">Hard Power 👊</h3>
+                        <p class="text-slate-400 text-sm">Coercion through military force or economic sanctions. It's
+                            the "stick."</p>
+                        <ul class="mt-2 text-sm text-slate-400 list-disc list-inside">
+                            <li>Military Interventions</li>
+                            <li>Trade Embargoes</li>
+                            <li>Asset Freezing</li>
+                        </ul>
+                    </div>
+                    <div class="bg-slate-800 p-6 rounded-xl">
+                        <h3 class="text-xl font-bold text-white mb-2">Soft Power 🎭</h3>
+                        <p class="text-slate-400 text-sm">Attraction through culture, values, and diplomacy. It's the
+                            "carrot."</p>
+                        <ul class="mt-2 text-sm text-slate-400 list-disc list-inside">
+                            <li>Hollywood/Pop Culture</li>
+                            <li>Foreign Aid</li>
+                            <li>Political Values</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Chart 3: Power Radar -->
+                <div class="lg:col-span-2 bg-slate-800 rounded-xl shadow-lg p-6">
+                    <h3 class="text-lg font-semibold text-emerald-400 mb-2">The Power Matrix: USA vs China vs EU</h3>
+                    <p class="text-xs text-slate-400 mb-4">Comparing the strengths of the three major global poles
+                        across 5 strategic dimensions.</p>
+                    <div class="chart-container">
+                        <canvas id="radarPowerChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. GEOGRAPHY (The Board) -->
+        <section id="geography">
+            <h2 class="text-3xl font-bold text-white mb-6 border-l-4 border-blue-500 pl-4">The Board: Choke Points</h2>
+            <p class="text-slate-300 mb-8 max-w-4xl">
+                Geography dictates strategy. <strong>"Choke Points"</strong> are narrow geographic channels (straits,
+                canals) where global trade is forced to pass. Controlling these points means controlling the flow of
+                oil, food, and goods. High traffic often leads to high geopolitical tension.
+            </p>
+
+            <!-- Chart 4: Bubble Chart Analysis -->
+            <div class="bg-slate-800 rounded-xl shadow-lg p-6">
+                <h3 class="text-lg font-semibold text-blue-400 mb-4">Strategic Strait Analysis: Importance vs.
+                    Vulnerability</h3>
+                <p class="text-xs text-slate-400 mb-4">
+                    <strong>X-Axis:</strong> Daily Oil Flow (Million Barrels). <strong>Y-Axis:</strong> Geopolitical
+                    Tension Score (1-10).
+                    <strong>Bubble Size:</strong> % of Global Trade.
+                </p>
+                <div class="chart-container">
+                    <canvas id="bubbleChart"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. 3D ANALYSIS (Complex Relationships) -->
+        <section id="analysis">
+            <h2 class="text-3xl font-bold text-white mb-6 border-l-4 border-indigo-500 pl-4">Multidimensional Power
+                Analysis</h2>
+            <p class="text-slate-300 mb-6">
+                Using advanced data plotting, we can visualize where nations stand when we correlate their Economic
+                Strength, Military Spending, and Soft Power Influence simultaneously.
+            </p>
+
+            <div class="bg-slate-800 rounded-xl shadow-lg p-4 border border-slate-700">
+                <h3 class="text-lg font-semibold text-indigo-400 mb-2 pl-2">Global Power Correlation (3D Interactive)
+                </h3>
+                <!-- Plotly Container -->
+                <div id="plotlyDiv" class="w-full h-[500px] bg-slate-900 rounded-lg overflow-hidden"></div>
+                <p class="text-xs text-slate-500 mt-2 text-center">Rotate to explore. Plot generated using WebGL
+                    (Canvas).</p>
+            </div>
+        </section>
+
+        <!-- 6. ALLIANCES (Organization) -->
+        <section id="alliances">
+            <h2 class="text-3xl font-bold text-white mb-6 border-l-4 border-orange-500 pl-4">The Teams: Key Alliances
+            </h2>
+            <p class="text-slate-300 mb-8">No country can fight alone. Alliances amplify power. The West rallies around
+                <strong>NATO</strong> (Security) and the <strong>G7</strong> (Economics), while the East is organizing
+                around <strong>BRICS+</strong> and the <strong>SCO</strong>.
+            </p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Team Blue -->
+                <div class="bg-slate-800/50 border border-blue-500/30 rounded-xl p-6 relative overflow-hidden">
+                    <div class="absolute top-0 right-0 p-4 opacity-10 text-9xl font-black text-blue-500">W</div>
+                    <h3 class="text-2xl font-bold text-blue-400 mb-4">The Western Bloc</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-center p-3 bg-slate-900 rounded border-l-2 border-blue-500">
+                            <div class="text-2xl mr-3">🛡️</div>
+                            <div>
+                                <h4 class="font-bold text-white">NATO</h4>
+                                <p class="text-xs text-slate-400">Military Alliance (32 Members)</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center p-3 bg-slate-900 rounded border-l-2 border-blue-500">
+                            <div class="text-2xl mr-3">💶</div>
+                            <div>
+                                <h4 class="font-bold text-white">European Union</h4>
+                                <p class="text-xs text-slate-400">Economic & Political Union</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center p-3 bg-slate-900 rounded border-l-2 border-blue-500">
+                            <div class="text-2xl mr-3">👁️</div>
+                            <div>
+                                <h4 class="font-bold text-white">Five Eyes</h4>
+                                <p class="text-xs text-slate-400">Intelligence Sharing (US, UK, CA, AU, NZ)</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Team Red/Orange -->
+                <div class="bg-slate-800/50 border border-orange-500/30 rounded-xl p-6 relative overflow-hidden">
+                    <div class="absolute top-0 right-0 p-4 opacity-10 text-9xl font-black text-orange-500">E</div>
+                    <h3 class="text-2xl font-bold text-orange-400 mb-4">Emerging Powers</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-center p-3 bg-slate-900 rounded border-l-2 border-orange-500">
+                            <div class="text-2xl mr-3">🧱</div>
+                            <div>
+                                <h4 class="font-bold text-white">BRICS+</h4>
+                                <p class="text-xs text-slate-400">Economic Bloc (Brazil, Russia, India, China...)</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center p-3 bg-slate-900 rounded border-l-2 border-orange-500">
+                            <div class="text-2xl mr-3">🏰</div>
+                            <div>
+                                <h4 class="font-bold text-white">SCO</h4>
+                                <p class="text-xs text-slate-400">Shanghai Cooperation Org (Security/Eurasia)</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center p-3 bg-slate-900 rounded border-l-2 border-orange-500">
+                            <div class="text-2xl mr-3">🛤️</div>
+                            <div>
+                                <h4 class="font-bold text-white">BRI</h4>
+                                <p class="text-xs text-slate-400">Belt & Road Initiative (Infrastructure Network)</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 7. HISTORY (Change) -->
+        <section id="history">
+            <h2 class="text-3xl font-bold text-white mb-6 border-l-4 border-emerald-500 pl-4">The Shift: Unipolar to
+                Multipolar</h2>
+            <p class="text-slate-300 mb-6">
+                In 1995, the G7 (Western allies) held nearly 70% of global wealth. Today, that share is shrinking as the
+                "Global South" and Asian economies rise. This chart tracks the % share of Global GDP (PPP) over time.
+            </p>
+            <div class="bg-slate-800 rounded-xl shadow-lg p-6">
+                <div class="chart-container">
+                    <canvas id="historyChart"></canvas>
+                </div>
+            </div>
+        </section>
+
+        </section>
+
+        <!-- 8. STRATEGIC MOVES (Events/Turns) -->
+        <section id="moves">
+            <h2 class="text-3xl font-bold text-white mb-6 border-l-4 border-purple-500 pl-4">Grand Strategy Dossiers
+            </h2>
+            <p class="text-slate-300 mb-8">
+                A deep dive into the four pillars defining the destiny of the Great Powers: <span
+                    class="text-emerald-400">History</span>, <span class="text-blue-400">Geography</span>, <span
+                    class="text-orange-400">Economy</span>, and <span class="text-purple-400">Geopolitics</span>.
+            </p>
+
+            <div class="space-y-12">
+                <!-- USA Dossier -->
+                <!-- USA Dossier -->
+                <div
+                    class="bg-slate-800/80 rounded-2xl p-8 border border-blue-500/30 relative overflow-hidden group hover:border-blue-500 transition duration-300">
+                    <div
+                        class="absolute top-0 right-0 p-4 opacity-5 group-hover:opacity-20 transition duration-500 text-8xl md:text-9xl grayscale group-hover:grayscale-0">
+                        🦅</div>
+                    <div class="relative z-10">
+                        <div class="flex items-center mb-4">
+                            <h3 class="text-3xl font-black text-blue-400">UNITED STATES</h3>
+                            <span
+                                class="ml-4 text-xs font-mono text-slate-400 border border-slate-600 px-2 py-1 rounded">SUPERPOWER</span>
+                        </div>
+                        <p class="text-slate-300 mb-6 text-lg">The chaos of the world stops at the water's edge. The US
+                            is the only power capable of projecting force to every corner of the globe simultaneously.
+                        </p>
+                        <a href="pages/usa.html"
+                            class="inline-flex items-center bg-blue-600 hover:bg-blue-500 text-white font-bold py-3 px-6 rounded-lg transition shadow-lg shadow-blue-500/20">
+                            OPEN CLASSIFIED DOSSIER
+                            <span class="ml-2">→</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- China Dossier -->
+                <!-- China Dossier -->
+                <div
+                    class="bg-slate-800/80 rounded-2xl p-8 border border-orange-500/30 relative overflow-hidden group hover:border-orange-500 transition duration-300">
+                    <div
+                        class="absolute top-0 right-0 p-4 opacity-5 group-hover:opacity-20 transition duration-500 text-8xl md:text-9xl grayscale group-hover:grayscale-0">
+                        🐉</div>
+                    <div class="relative z-10">
+                        <div class="flex items-center mb-4">
+                            <h3 class="text-3xl font-black text-orange-400">CHINA</h3>
+                            <span
+                                class="ml-4 text-xs font-mono text-slate-400 border border-slate-600 px-2 py-1 rounded">CHALLENGER</span>
+                        </div>
+                        <p class="text-slate-300 mb-6 text-lg">The Middle Kingdom returns to center stage. The world's
+                            factory is now seeking to reshape the global order to suit its interests.</p>
+                        <a href="pages/china.html"
+                            class="inline-flex items-center bg-orange-600 hover:bg-orange-500 text-white font-bold py-3 px-6 rounded-lg transition shadow-lg shadow-orange-500/20">
+                            OPEN CLASSIFIED DOSSIER
+                            <span class="ml-2">→</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Russia Dossier -->
+                <!-- Russia Dossier -->
+                <div
+                    class="bg-slate-800/80 rounded-2xl p-8 border border-red-500/30 relative overflow-hidden group hover:border-red-500 transition duration-300">
+                    <div
+                        class="absolute top-0 right-0 p-4 opacity-5 group-hover:opacity-20 transition duration-500 text-8xl md:text-9xl grayscale group-hover:grayscale-0">
+                        🐻</div>
+                    <div class="relative z-10">
+                        <div class="flex items-center mb-4">
+                            <h3 class="text-3xl font-black text-red-400">RUSSIA</h3>
+                            <span
+                                class="ml-4 text-xs font-mono text-slate-400 border border-slate-600 px-2 py-1 rounded">DISRUPTOR</span>
+                        </div>
+                        <p class="text-slate-300 mb-6 text-lg">A paranoid giant seeking strategic depth. Cut off from
+                            the West, it turns East, leveraging its vast resources and nuclear arsenal.</p>
+                        <a href="pages/russia.html"
+                            class="inline-flex items-center bg-red-600 hover:bg-red-500 text-white font-bold py-3 px-6 rounded-lg transition shadow-lg shadow-red-500/20">
+                            OPEN CLASSIFIED DOSSIER
+                            <span class="ml-2">→</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- India Dossier -->
+                <div
+                    class="bg-slate-800/80 rounded-2xl p-8 border border-purple-500/30 relative overflow-hidden group hover:border-purple-500 transition duration-300">
+                    <div
+                        class="absolute top-0 right-0 p-4 opacity-5 group-hover:opacity-20 transition duration-500 text-8xl md:text-9xl grayscale group-hover:grayscale-0">
+                        🐯</div>
+                    <div class="relative z-10">
+                        <div class="flex items-center mb-4">
+                            <h3 class="text-3xl font-black text-purple-400">INDIA</h3>
+                            <span
+                                class="ml-4 text-xs font-mono text-slate-400 border border-slate-600 px-2 py-1 rounded">RISING
+                                POWER</span>
+                        </div>
+                        <p class="text-slate-300 mb-6 text-lg">The world's largest democracy is walking a tightrope. A
+                            voice for the Global South that refuses to choose sides in the Great Power Game.</p>
+                        <a href="pages/india.html"
+                            class="inline-flex items-center bg-purple-600 hover:bg-purple-500 text-white font-bold py-3 px-6 rounded-lg transition shadow-lg shadow-purple-500/20">
+                            OPEN CLASSIFIED DOSSIER
+                            <span class="ml-2">→</span>
+                            <!-- EU Dossier -->
+                            <div
+                                class="bg-slate-800/80 rounded-2xl p-8 border border-emerald-500/30 relative overflow-hidden group hover:border-emerald-500 transition duration-300">
+                                <div
+                                    class="absolute top-0 right-0 p-4 opacity-5 group-hover:opacity-20 transition duration-500 text-8xl md:text-9xl grayscale group-hover:grayscale-0">
+                                    🇪🇺</div>
+                                <div class="relative z-10">
+                                    <div class="flex items-center mb-4">
+                                        <h3 class="text-3xl font-black text-emerald-400">EUROPEAN UNION</h3>
+                                    </div>
+
+                                    <!-- REGIONAL POWERS SECTION -->
+                                    <div class="mt-24 mb-12 border-t border-slate-700 pt-12">
+                                        <h2
+                                            class="text-3xl font-bold text-white mb-8 border-l-4 border-yellow-500 pl-4">
+                                            Regional
+                                            Pivots: The Swing States</h2>
+                                        <p class="text-slate-300 mb-8 max-w-3xl">These nations may not rule the world,
+                                            but they decide
+                                            who does. In a multipolar world, their allegiance is the ultimate prize.</p>
+
+                                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                                            <!-- Japan -->
+                                            <a href="pages/japan.html"
+                                                class="block bg-slate-800 p-6 rounded-xl border border-slate-700 hover:border-red-500 transition hover:bg-slate-750 group">
+                                                <div class="flex justify-between items-start mb-2">
+                                                    <h3 class="text-xl font-bold text-white group-hover:text-red-400">
+                                                        🇯🇵 JAPAN</h3>
+                                                    <span
+                                                        class="text-xs border border-slate-600 px-2 py-1 rounded text-slate-400">ASIA-PACIFIC</span>
+                                                </div>
+                                                <p class="text-sm text-slate-400">The unsinkable aircraft carrier.
+                                                    Re-arming to face
+                                                    China.</p>
+                                            </a>
+
+                                            <!-- UK -->
+                                            <a href="pages/uk.html"
+                                                class="block bg-slate-800 p-6 rounded-xl border border-slate-700 hover:border-blue-700 transition hover:bg-slate-750 group">
+                                                <div class="flex justify-between items-start mb-2">
+                                                    <h3 class="text-xl font-bold text-white group-hover:text-blue-400">
+                                                        🇬🇧 UNITED
+                                                        KINGDOM</h3>
+                                                    <span
+                                                        class="text-xs border border-slate-600 px-2 py-1 rounded text-slate-400">ATLANTIC</span>
+                                                </div>
+                                                <p class="text-sm text-slate-400">Post-Brexit coordinator. AUKUS
+                                                    architect and spy hub.
+                                                </p>
+                                            </a>
+
+                                            <!-- Saudi Arabia -->
+                                            <a href="pages/saudi_arabia.html"
+                                                class="block bg-slate-800 p-6 rounded-xl border border-slate-700 hover:border-green-500 transition hover:bg-slate-750 group">
+                                                <div class="flex justify-between items-start mb-2">
+                                                    <h3 class="text-xl font-bold text-white group-hover:text-green-400">
+                                                        🇸🇦 SAUDI
+                                                        ARABIA</h3>
+                                                    <span
+                                                        class="text-xs border border-slate-600 px-2 py-1 rounded text-slate-400">MIDDLE
+                                                        EAST</span>
+                                                </div>
+                                                <p class="text-sm text-slate-400">The Central Bank of Oil. Vision 2030
+                                                    seeks autonomy.
+                                                </p>
+                                            </a>
+
+                                            <!-- Brazil -->
+                                            <a href="pages/brazil.html"
+                                                class="block bg-slate-800 p-6 rounded-xl border border-slate-700 hover:border-green-600 transition hover:bg-slate-750 group">
+                                                <div class="flex justify-between items-start mb-2">
+                                                    <h3 class="text-xl font-bold text-white group-hover:text-green-500">
+                                                        🇧🇷 BRAZIL</h3>
+                                                    <span
+                                                        class="text-xs border border-slate-600 px-2 py-1 rounded text-slate-400">AMERICAS</span>
+                                                </div>
+                                                <p class="text-sm text-slate-400">The Agricultural Superpower. Leader of
+                                                    the Global
+                                                    South (Lula).</p>
+                                            </a>
+
+                                            <!-- Turkey -->
+                                            <a href="pages/turkey.html"
+                                                class="block bg-slate-800 p-6 rounded-xl border border-slate-700 hover:border-red-600 transition hover:bg-slate-750 group">
+                                                <div class="flex justify-between items-start mb-2">
+                                                    <h3 class="text-xl font-bold text-white group-hover:text-red-500">
+                                                        🇹🇷 TURKEY</h3>
+                                                    <span
+                                                        class="text-xs border border-slate-600 px-2 py-1 rounded text-slate-400">EURASIA</span>
+                                                </div>
+                                                <p class="text-sm text-slate-400">The Bridge. NATO member playing both
+                                                    sides
+                                                    (Russia/West).</p>
+                                            </a>
+
+                                            <!-- Iran -->
+                                            <a href="pages/iran.html"
+                                                class="block bg-slate-800 p-6 rounded-xl border border-slate-700 hover:border-red-700 transition hover:bg-slate-750 group">
+                                                <div class="flex justify-between items-start mb-2">
+                                                    <h3 class="text-xl font-bold text-white group-hover:text-red-600">
+                                                        🇮🇷 IRAN</h3>
+                                                    <span
+                                                        class="text-xs border border-slate-600 px-2 py-1 rounded text-slate-400">MIDDLE
+                                                        EAST</span>
+                                                </div>
+                                                <p class="text-sm text-slate-400">The Resistance. Asymmetric warfare
+                                                    master & Drone
+                                                    supplier.</p>
+                                            </a>
+                                        </div>
+                                    </div>
+
+        </section>
+
+        <!-- 9. CONCLUSION -->
+        <section id="future"
+            class="bg-gradient-to-br from-slate-900 to-blue-900 rounded-2xl p-8 md:p-12 text-center border border-blue-500/20">
+            <h2 class="text-4xl font-bold text-white mb-6">The Future of Conflict</h2>
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-6 text-left mt-8">
+                <div class="p-4 bg-slate-900/50 rounded-lg">
+                    <span class="text-orange-500 text-xl font-bold block mb-2">01. Cyber Warfare</span>
+                    <p class="text-sm text-slate-400">Battles fought in server rooms, not trenches. Targeting
+                        infrastructure and elections.</p>
+                </div>
+                <div class="p-4 bg-slate-900/50 rounded-lg">
+                    <span class="text-blue-500 text-xl font-bold block mb-2">02. Space Race 2.0</span>
+                    <p class="text-sm text-slate-400">Control of satellite orbits for communication, surveillance, and
+                        missile guidance.</p>
+                </div>
+                <div class="p-4 bg-slate-900/50 rounded-lg">
+                    <span class="text-emerald-500 text-xl font-bold block mb-2">03. Green Energy</span>
+                    <p class="text-sm text-slate-400">The shift from Oil (Middle East) to Lithium/Cobalt (Africa/S.
+                        America) changes strategic maps.</p>
+                </div>
+                <div class="p-4 bg-slate-900/50 rounded-lg">
+                    <span class="text-purple-500 text-xl font-bold block mb-2">04. Demographics</span>
+                    <p class="text-sm text-slate-400">Aging populations in the West vs Youth bulges in Africa and India.
+                    </p>
+                </div>
+            </div>
+            <p class="mt-10 text-slate-400 text-sm">
+                Geopolitics 101 created by Adarsh A educational purposes
+            </p>
+        </section>
+
+    </main>
+
+    <!-- CHART LOGIC -->
+    <script>
+        // --- UTILITIES ---
+        // 1. Label Wrapping Helper (16 chars)
+        function wrapLabel(str) {
+            if (str.length <= 16) return str;
+            const words = str.split(' ');
+            const lines = [];
+            let currentLine = words[0];
+
+            for (let i = 1; i < words.length; i++) {
+                if (currentLine.length + 1 + words[i].length <= 16) {
+                    currentLine += ' ' + words[i];
+                } else {
+                    lines.push(currentLine);
+                    currentLine = words[i];
+                }
+            }
+            lines.push(currentLine);
+            return lines;
+        }
+
+        // 2. Common Tooltip Config
+        const commonTooltip = {
+            callbacks: {
+                title: function (tooltipItems) {
+                    const item = tooltipItems[0];
+                    let label = item.chart.data.labels[item.dataIndex];
+                    if (Array.isArray(label)) {
+                        return label.join(' ');
+                    } else {
+                        return label;
+                    }
+                }
+            }
+        };
+
+        // 3. Common Chart Options
+        Chart.defaults.color = '#94a3b8';
+        Chart.defaults.font.family = "'Roboto', sans-serif";
+        const baseOptions = {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                tooltip: commonTooltip,
+                legend: {
+                    labels: { color: '#f1f5f9' }
+                }
+            }
+        };
+
+        // --- CHART 1: GDP (Bar) ---
+        // Top 5 Economies (Approx 2024 Estimates in Trillions)
+        const ctxGDP = document.getElementById('gdpChart').getContext('2d');
+        const labelsGDP = ['United States', 'China', 'Germany', 'Japan', 'India'];
+        const processedLabelsGDP = labelsGDP.map(wrapLabel);
+
+        new Chart(ctxGDP, {
+            type: 'bar',
+            data: {
+                labels: processedLabelsGDP,
+                datasets: [{
+                    label: 'GDP (Trillion USD)',
+                    data: [27.9, 18.5, 4.7, 4.2, 4.1],
+                    backgroundColor: [
+                        '#3b82f6', // US Blue
+                        '#f97316', // China Orange
+                        '#10b981', // Germany Emerald
+                        '#6366f1', // Japan Indigo
+                        '#8b5cf6'  // India Purple
+                    ],
+                    borderWidth: 0,
+                    borderRadius: 4
+                }]
+            },
+            options: {
+                ...baseOptions,
+                indexAxis: 'y', // Horizontal bar
+                scales: {
+                    x: {
+                        grid: { color: '#334155' },
+                        ticks: { color: '#cbd5e1' }
+                    },
+                    y: {
+                        grid: { display: false },
+                        ticks: { color: '#cbd5e1', font: { weight: 'bold' } }
+                    }
+                }
+            }
+        });
+
+        // --- CHART 2: Military Spending (Doughnut) ---
+        const ctxMil = document.getElementById('militaryChart').getContext('2d');
+        const milLabels = ['United States', 'China', 'Russia', 'India', 'Rest of World'];
+
+        new Chart(ctxMil, {
+            type: 'doughnut',
+            data: {
+                labels: milLabels.map(wrapLabel),
+                datasets: [{
+                    data: [877, 292, 86, 81, 900], // Approx Billions
+                    backgroundColor: ['#3b82f6', '#f97316', '#ef4444', '#8b5cf6', '#475569'],
+                    borderColor: '#1e293b',
+                    borderWidth: 2
+                }]
+            },
+            options: {
+                ...baseOptions,
+                cutout: '60%',
+                plugins: {
+                    ...baseOptions.plugins,
+                    legend: { position: 'right', labels: { color: '#f1f5f9' } }
+                }
+            }
+        });
+
+        // --- CHART 3: Power Matrix (Radar) ---
+        const ctxRadar = document.getElementById('radarPowerChart').getContext('2d');
+
+        new Chart(ctxRadar, {
+            type: 'radar',
+            data: {
+                labels: ['Military Strength', 'Economic Volume', 'Tech Innovation', 'Diplomatic Inf.', 'Energy Indep.'].map(wrapLabel),
+                datasets: [
+                    {
+                        label: 'United States',
+                        data: [100, 100, 95, 85, 90],
+                        borderColor: '#3b82f6',
+                        backgroundColor: 'rgba(59, 130, 246, 0.2)',
+                        pointBackgroundColor: '#3b82f6'
+                    },
+                    {
+                        label: 'China',
+                        data: [85, 75, 80, 70, 40],
+                        borderColor: '#f97316',
+                        backgroundColor: 'rgba(249, 115, 22, 0.2)',
+                        pointBackgroundColor: '#f97316'
+                    },
+                    {
+                        label: 'European Union',
+                        data: [60, 85, 85, 95, 30],
+                        borderColor: '#10b981',
+                        backgroundColor: 'rgba(16, 185, 129, 0.2)',
+                        pointBackgroundColor: '#10b981'
+                    }
+                ]
+            },
+            options: {
+                ...baseOptions,
+                scales: {
+                    r: {
+                        angleLines: { color: '#475569' },
+                        grid: { color: '#334155' },
+                        pointLabels: { color: '#f1f5f9', font: { size: 12 } },
+                        ticks: { display: false }
+                    }
+                }
+            }
+        });
+
+        // --- CHART 4: Strategic Choke Points (Bubble) ---
+        // Data: x=Oil Flow (Mb/d), y=Tension (1-10), r=Trade Importance
+        const ctxBubble = document.getElementById('bubbleChart').getContext('2d');
+
+        new Chart(ctxBubble, {
+            type: 'bubble',
+            data: {
+                datasets: [{
+                    label: 'Strait of Hormuz (Middle East)',
+                    data: [{ x: 21, y: 9, r: 25 }],
+                    backgroundColor: '#ef4444' // High Risk
+                },
+                {
+                    label: 'Strait of Malacca (Asia)',
+                    data: [{ x: 16, y: 6, r: 22 }],
+                    backgroundColor: '#f97316' // Med Risk
+                },
+                {
+                    label: 'Suez Canal (Egypt)',
+                    data: [{ x: 5.5, y: 5, r: 15 }],
+                    backgroundColor: '#eab308' // Low-Med Risk
+                },
+                {
+                    label: 'Panama Canal (Americas)',
+                    data: [{ x: 0.5, y: 2, r: 10 }],
+                    backgroundColor: '#3b82f6' // Low Risk
+                }]
+            },
+            options: {
+                ...baseOptions,
+                scales: {
+                    x: {
+                        title: { display: true, text: 'Daily Oil Flow (Million Barrels)', color: '#94a3b8' },
+                        grid: { color: '#334155' },
+                        ticks: { color: '#cbd5e1' }
+                    },
+                    y: {
+                        title: { display: true, text: 'Geopolitical Tension Score (1-10)', color: '#94a3b8' },
+                        min: 0, max: 10,
+                        grid: { color: '#334155' },
+                        ticks: { color: '#cbd5e1' }
+                    }
+                },
+                plugins: {
+                    tooltip: {
+                        callbacks: {
+                            title: function (context) {
+                                return context[0].dataset.label;
+                            },
+                            label: function (context) {
+                                return `Oil: ${context.raw.x}M bpd | Tension: ${context.raw.y}/10`;
+                            }
+                        }
+                    }
+                }
+            }
+        });
+
+        // --- CHART 5: History Line Chart (Rise of Rest) ---
+        const ctxHistory = document.getElementById('historyChart').getContext('2d');
+
+        new Chart(ctxHistory, {
+            type: 'line',
+            data: {
+                labels: ['1995', '2005', '2015', '2025 (Proj)', '2035 (Proj)'],
+                datasets: [
+                    {
+                        label: 'G7 Share of Global GDP',
+                        data: [65, 58, 46, 40, 35],
+                        borderColor: '#3b82f6',
+                        backgroundColor: '#3b82f6',
+                        tension: 0.4,
+                        borderWidth: 3
+                    },
+                    {
+                        label: 'Emerging Mkts (E7) Share',
+                        data: [15, 22, 35, 45, 55],
+                        borderColor: '#f97316',
+                        backgroundColor: '#f97316',
+                        tension: 0.4,
+                        borderWidth: 3
+                    }
+                ]
+            },
+            options: {
+                ...baseOptions,
+                scales: {
+                    y: {
+                        title: { display: true, text: '% Share of Global GDP (PPP)', color: '#94a3b8' },
+                        grid: { color: '#334155' },
+                        ticks: { color: '#cbd5e1' }
+                    },
+                    x: {
+                        grid: { color: '#334155' },
+                        ticks: { color: '#cbd5e1' }
+                    }
+                }
+            }
+        });
+
+        // --- CHART 6: Plotly 3D Scatter (WebGL/Canvas) ---
+        // Using Plotly.js for sophisticated multidimensional view
+        const countryNames = ['USA', 'China', 'Russia', 'India', 'Germany', 'Japan', 'UK', 'France', 'Brazil', 'S. Arabia'];
+        const economicPower = [100, 75, 20, 35, 45, 42, 33, 30, 22, 25]; // X
+        const militaryPower = [100, 80, 70, 60, 30, 35, 40, 45, 25, 40]; // Y
+        const softPower = [90, 40, 20, 50, 85, 80, 88, 85, 40, 15]; // Z
+        const sizes = [40, 35, 20, 25, 20, 20, 18, 18, 15, 15];
+        const colors = ['#3b82f6', '#f97316', '#ef4444', '#8b5cf6', '#10b981', '#6366f1', '#0ea5e9', '#06b6d4', '#eab308', '#f59e0b'];
+
+        const trace1 = {
+            x: economicPower,
+            y: militaryPower,
+            z: softPower,
+            mode: 'markers+text',
+            text: countryNames,
+            textposition: 'top center',
+            marker: {
+                size: sizes,
+                color: colors,
+                opacity: 0.8,
+                line: { color: 'white', width: 1 }
+            },
+            type: 'scatter3d',
+            hoverinfo: 'text+x+y+z',
+            hovertemplate: '<b>%{text}</b><br>Econ: %{x}<br>Mil: %{y}<br>Soft: %{z}<extra></extra>'
+        };
+
+        const layoutPlotly = {
+            margin: { l: 0, r: 0, b: 0, t: 0 },
+            paper_bgcolor: 'rgba(0,0,0,0)',
+            plot_bgcolor: 'rgba(0,0,0,0)',
+            scene: {
+                xaxis: { title: 'Economic (GDP)', color: '#94a3b8', gridcolor: '#334155' },
+                yaxis: { title: 'Military Power', color: '#94a3b8', gridcolor: '#334155' },
+                zaxis: { title: 'Soft Power', color: '#94a3b8', gridcolor: '#334155' },
+                bgcolor: 'rgba(0,0,0,0)' // Transparent
+            },
+            showlegend: false
+        };
+
+        // Explicitly requesting WebGL via Scatter3D which uses Canvas/WebGL context, NOT SVG.
+        Plotly.newPlot('plotlyDiv', [trace1], layoutPlotly, { responsive: true, displayModeBar: false });
+
+    </script>
+</body>
+
+</html>

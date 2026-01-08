@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>USA: The American Century - Geopolitics Dossier</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Roboto:wght@300;400;500;700&family=Merriweather:wght@300;400;700&display=swap"
+        rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #0f172a;
+            color: #f1f5f9;
+        }
+
+        .brand-font {
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        .book-font {
+            font-family: 'Merriweather', serif;
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #0f172a;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #3b82f6;
+            border-radius: 4px;
+        }
+
+        .timeline-line {
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: #334155;
+            transform: translateX(-50%);
+        }
+    </style>
+</head>
+
+<body class="antialiased">
+    <!-- Nav -->
+    <nav class="sticky top-0 z-50 bg-slate-900/95 backdrop-blur border-b border-blue-900/50">
+        <div class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="../world geopolitics2.html"
+                class="text-blue-500 hover:text-white font-bold flex items-center gap-2">
+                <span>←</span> Back to Global Dashboard
+            </a>
+            <span class="brand-font text-xl text-white">DOSSIER: <span class="text-blue-500">USA</span></span>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <header class="relative bg-slate-900 py-12 overflow-hidden border-b border-blue-900">
+        <div
+            class="absolute inset-0 opacity-10 bg-[url('https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_United_States.svg')] bg-cover bg-center">
+        </div>
+        <div class="max-w-7xl mx-auto px-4 relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <!-- Left: Text Info -->
+            <div>
+                <div class="text-6xl mb-4">🇺🇸</div>
+                <h1 class="text-5xl md:text-7xl font-black text-white mb-4 brand-font tracking-tight">THE INCUMBENT</h1>
+                <p class="text-xl text-blue-300 font-light italic mb-6">"Preserving the Rules-Based International Order"
+                </p>
+
+                <!-- The Hand -->
+                <div class="bg-slate-800/50 p-4 rounded-xl border border-blue-500/30 mb-6">
+                    <h3 class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-3">The Hand (Key Resources)
+                    </h3>
+                    <div class="flex gap-4 text-2xl">
+                        <span title="Global Reserve Currency">💵</span>
+                        <span title="Tech Supremacy (Silicon)">💾</span>
+                        <span title="Naval Power">🚢</span>
+                        <span title="Energy Independence">🛢️</span>
+                    </div>
+                </div>
+
+                <div class="flex gap-2 text-sm font-mono text-slate-400">
+                    <span class="border border-slate-600 px-3 py-1 rounded">GDP: $28T (1st)</span>
+                    <span class="border border-slate-600 px-3 py-1 rounded">Strategy: Containment 2.0</span>
+                </div>
+            </div>
+
+            <!-- Right: Radar Chart -->
+            <div class="bg-slate-800/50 p-6 rounded-2xl border border-blue-500/20 backdrop-blur-sm">
+                <h3 class="text-center text-blue-400 font-bold mb-2 brand-font">POWER STATS</h3>
+                <div class="h-64 sm:h-80">
+                    <canvas id="powerRadar"></canvas>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-5xl mx-auto px-4 py-12 space-y-20">
+
+        <!-- GEOGRAPHIC IMPERATIVE -->
+        <section class="bg-slate-800/50 rounded-2xl p-8 border border-blue-500/20">
+            <h2 class="text-3xl font-bold text-white mb-6 border-l-4 border-blue-500 pl-4">The Geographic Fortress</h2>
+            <div class="prose prose-invert max-w-none book-font text-slate-300 leading-relaxed">
+                <p class="mb-4">
+                    The absolute geopolitical success of the United States begins with its map. It is the most
+                    geographically advantaged nation in history.
+                </p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 my-8">
+                    <div>
+                        <h3 class="font-bold text-blue-400 mb-2">1. The Two Oceans</h3>
+                        <p>Flanked by the Atlantic and Pacific, the US is virtually immune to invasion. This "moat"
+                            allows it to project power outward without worrying about defense at home.</p>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-blue-400 mb-2">2. The Mississippi Basin</h3>
+                        <p>The largest contiguous navigable river system in the world overlaying the largest contiguous
+                            piece of arable land. This creates massive capital generation with near-zero transport
+                            costs.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- THE CHRONICLES (TIMELINE) -->
+        <section>
+            <h2 class="text-3xl font-bold text-white mb-12 text-center border-b border-slate-700 pb-4">The Chronicles:
+                Rise to Hegemony</h2>
+
+            <div class="relative">
+                <div class="timeline-line hidden md:block"></div>
+
+                <!-- Event 1944 -->
+                <div class="mb-12 flex flex-col md:flex-row items-center justify-between relative group">
+                    <div class="md:w-5/12 text-right pr-8">
+                        <h3 class="text-2xl font-bold text-blue-400">1944: Bretton Woods</h3>
+                        <p class="text-sm text-slate-500 mb-2">The Financial Foundation</p>
+                        <p class="text-slate-300 book-font">Before WWII even ended, the US established the dollar as the
+                            global reserve currency, pegged to gold. This gave the US "exorbitant privilege" in global
+                            trade.</p>
+                    </div>
+                    <div
+                        class="w-8 h-8 rounded-full bg-blue-500 border-4 border-slate-900 z-10 shadow-[0_0_15px_rgba(59,130,246,0.5)]">
+                    </div>
+                    <div class="md:w-5/12 pl-8"></div>
+                </div>
+
+                <!-- Event 1947 -->
+                <div class="mb-12 flex flex-col md:flex-row-reverse items-center justify-between relative group">
+                    <div class="md:w-5/12 text-left pl-8">
+                        <h3 class="text-2xl font-bold text-blue-400">1947: The Marshall Plan</h3>
+                        <p class="text-sm text-slate-500 mb-2">Buying Loyalty</p>
+                        <p class="text-slate-300 book-font">The US spent billions to rebuild Western Europe. This wasn't
+                            charity; it was strategy. It created markets for US goods and secured loyalty against the
+                            Soviet Union.</p>
+                    </div>
+                    <div class="w-8 h-8 rounded-full bg-slate-700 border-4 border-slate-900 z-10"></div>
+                    <div class="md:w-5/12 pr-8"></div>
+                </div>
+
+                <!-- Event 1991 -->
+                <div class="mb-12 flex flex-col md:flex-row items-center justify-between relative group">
+                    <div class="md:w-5/12 text-right pr-8">
+                        <h3 class="text-2xl font-bold text-emerald-400">1991: The Unipolar Moment</h3>
+                        <p class="text-sm text-slate-500 mb-2">Soviet Collapse</p>
+                        <p class="text-slate-300 book-font">The USSR dissolves. For the first time in history, there is
+                            only one global superpower. The US Navy becomes the guarantor of all global maritime trade.
+                        </p>
+                    </div>
+                    <div
+                        class="w-8 h-8 rounded-full bg-emerald-500 border-4 border-slate-900 z-10 shadow-[0_0_15px_rgba(16,185,129,0.5)]">
+                    </div>
+                    <div class="md:w-5/12 pl-8"></div>
+                </div>
+
+                <!-- Event 2001 -->
+                <div class="mb-12 flex flex-col md:flex-row-reverse items-center justify-between relative group">
+                    <div class="md:w-5/12 text-left pl-8">
+                        <h3 class="text-2xl font-bold text-red-500">2001: War on Terror</h3>
+                        <p class="text-sm text-slate-500 mb-2">The Strategic Distraction</p>
+                        <p class="text-slate-300 book-font">9/11 draws the US into the Middle East for 20 years. While
+                            the US spends trillions in the sand, China quietly builds its economy and military, closing
+                            the gap.</p>
+                    </div>
+                    <div
+                        class="w-8 h-8 rounded-full bg-red-500 border-4 border-slate-900 z-10 shadow-[0_0_15px_rgba(239,68,68,0.5)]">
+                    </div>
+                    <div class="md:w-5/12 pr-8"></div>
+                </div>
+
+                <!-- Event 2022 -->
+                <div class="mb-12 flex flex-col md:flex-row items-center justify-between relative group">
+                    <div class="md:w-5/12 text-right pr-8">
+                        <h3 class="text-2xl font-bold text-indigo-400">2022: CHIPS & Science Act</h3>
+                        <p class="text-sm text-slate-500 mb-2">Re-Industrialization</p>
+                        <p class="text-slate-300 book-font">Recognizing the threat to Taiwan, the US passes massive
+                            subsidies to bring semiconductor manufacturing home. It's the beginning of "Decoupling" from
+                            China.</p>
+                    </div>
+                    <div
+                        class="w-8 h-8 rounded-full bg-indigo-500 border-4 border-slate-900 z-10 shadow-[0_0_15px_rgba(99,102,241,0.5)]">
+                    </div>
+                    <div class="md:w-5/12 pl-8"></div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ECONOMIC ENGINE -->
+        <section class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="bg-slate-800 p-6 rounded-xl border-t-4 border-green-500">
+                <h3 class="text-xl font-bold mb-4">Dollar Hegemony</h3>
+                <p class="text-slate-400 text-sm">88% of all FX transactions involve the USD. This allows the US to
+                    export inflation and sanction anyone via SWIFT.</p>
+            </div>
+            <div class="bg-slate-800 p-6 rounded-xl border-t-4 border-purple-500">
+                <h3 class="text-xl font-bold mb-4">Silicon Valley</h3>
+                <p class="text-slate-400 text-sm">Home to the world's most valuable companies (Apple, Microsoft,
+                    Nvidia). Domination of the "Digital Sphere" is absolute.</p>
+            </div>
+            <div class="bg-slate-800 p-6 rounded-xl border-t-4 border-yellow-500">
+                <h3 class="text-xl font-bold mb-4">Shale Revolution</h3>
+                <p class="text-slate-400 text-sm">Fracking technology turned the US from an oil importer to the world's
+                    largest oil producer (net exporter), creating energy independence.</p>
+            </div>
+        </section>
+
+        </section>
+
+        </section>
+
+        <!-- RELATIONSHIP MATRIX -->
+        <section class="bg-slate-900 rounded-3xl p-8 border border-slate-700 shadow-2xl">
+            <h2 class="text-3xl font-bold text-white mb-8 border-l-4 border-blue-500 pl-4">Relationship Matrix</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- China: Rival -->
+                <div class="bg-slate-800 p-6 rounded-xl border-t-4 border-red-500">
+                    <div class="flex justify-between items-center mb-4">
+                        <h3 class="text-xl font-bold text-white">🇨🇳 CHINA</h3>
+                        <span class="text-xs bg-red-900 text-red-100 px-2 py-1 rounded">STRATEGIC RIVAL</span>
+                    </div>
+                    <!-- Meter -->
+                    <div class="w-full bg-slate-700 h-4 rounded-full mb-2 relative overflow-hidden">
+                        <div class="bg-gradient-to-r from-red-600 to-orange-500 h-full absolute top-0 left-0"
+                            style="width: 30%"></div>
+                        <div class="absolute top-0 bottom-0 left-1/2 w-0.5 bg-slate-500"></div> <!-- Center line -->
+                    </div>
+                    <div class="flex justify-between text-xs text-slate-400 mb-4">
+                        <span>Hostile (-60)</span>
+                        <span>Friendly</span>
+                    </div>
+                    <p class="text-sm text-slate-300 mb-2"><strong>Interdependence:</strong> Critical. Deeply
+                        intertwined supply chains despite political decoupling.</p>
+                </div>
+
+                <!-- EU: Ally -->
+                <div class="bg-slate-800 p-6 rounded-xl border-t-4 border-emerald-500">
+                    <div class="flex justify-between items-center mb-4">
+                        <h3 class="text-xl font-bold text-white">🇪🇺 EU</h3>
+                        <span class="text-xs bg-emerald-900 text-emerald-100 px-2 py-1 rounded">IRONCLAD ALLY</span>
+                    </div>
+                    <!-- Meter -->
+                    <div class="w-full bg-slate-700 h-4 rounded-full mb-2 relative overflow-hidden">
+                        <div class="bg-gradient-to-r from-emerald-600 to-green-400 h-full absolute top-0 left-0"
+                            style="width: 90%"></div>
+                        <div class="absolute top-0 bottom-0 left-1/2 w-0.5 bg-slate-500"></div>
+                    </div>
+                    <div class="flex justify-between text-xs text-slate-400 mb-4">
+                        <span>Hostile</span>
+                        <span>Verified (+90)</span>
+                    </div>
+                    <p class="text-sm text-slate-300 mb-2"><strong>Agreements:</strong> <span
+                            class="bg-slate-700 px-1 rounded">NATO</span> <span
+                            class="bg-slate-700 px-1 rounded">TTC</span></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SWOT ANALYSIS -->
+        <section class="max-w-7xl mx-auto">
+            <h2 class="text-3xl font-bold text-white mb-8 border-l-4 border-blue-500 pl-4">Strategic SWOT</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Strengths -->
+                <div class="bg-slate-800/80 p-6 rounded-xl border border-green-500/30">
+                    <div class="flex items-center gap-3 mb-4">
+                        <span class="text-2xl">💪</span>
+                        <h3 class="text-xl font-bold text-green-400">STRENGTHS</h3>
+                    </div>
+                    <ul class="list-disc list-inside text-slate-300 space-y-2">
+                        <li><strong>Geography:</strong> Protected by two oceans (Atlantic/Pacific).</li>
+                        <li><strong>Dollar Hegemony:</strong> Controls global financial rails.</li>
+                        <li><strong>Innovation:</strong> Leads in AI, BioTech, and Space.</li>
+                    </ul>
+                </div>
+                <!-- Weaknesses -->
+                <div class="bg-slate-800/80 p-6 rounded-xl border border-red-500/30">
+                    <div class="flex items-center gap-3 mb-4">
+                        <span class="text-2xl">⚠️</span>
+                        <h3 class="text-xl font-bold text-red-400">WEAKNESSES</h3>
+                    </div>
+                    <ul class="list-disc list-inside text-slate-300 space-y-2">
+                        <li><strong>Polarization:</strong> Internal political division.</li>
+                        <li><strong>Debt:</strong> $34 Trillion national debt.</li>
+                        <li><strong>Overextension:</strong> Security commitments globally.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- SITUATION ROOM (CHARTS) -->
+        <section class="bg-slate-900 rounded-3xl p-8 border border-slate-700 shadow-2xl">
+            <h2 class="text-3xl font-bold text-white mb-8 flex items-center gap-3">
+                <span class="text-blue-500">📊</span> THE SITUATION ROOM
+            </h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Chart 1: GDP -->
+                <div class="bg-slate-800 p-4 rounded-xl">
+                    <h3 class="text-sm font-bold text-slate-400 mb-4 text-center">ECONOMIC SUPREMACY (GDP $T)</h3>
+                    <canvas id="gdpChart"></canvas>
+                </div>
+                <!-- Chart 2: Military -->
+                <div class="bg-slate-800 p-4 rounded-xl">
+                    <h3 class="text-sm font-bold text-slate-400 mb-4 text-center">GLOBAL DEFENSE SPENDING</h3>
+                    <canvas id="militaryChart"></canvas>
+                </div>
+                <!-- Chart 3: Tech -->
+                <div class="bg-slate-800 p-4 rounded-xl">
+                    <h3 class="text-sm font-bold text-slate-400 mb-4 text-center">AI INNOVATION LEAD</h3>
+                    <canvas id="techChart"></canvas>
+                </div>
+            </div>
+
+            <script>
+                // Common Chart Options
+                Chart.defaults.color = '#94a3b8';
+                Chart.defaults.font.family = 'Roboto';
+
+                // GDP Chart
+                new Chart(document.getElementById('gdpChart'), {
+                    type: 'line',
+                    data: {
+                        labels: ['2000', '2005', '2010', '2015', '2020', '2024'],
+                        datasets: [
+                            { label: 'USA', data: [10.2, 13.0, 15.0, 18.2, 21.0, 28.0], borderColor: '#3b82f6', tension: 0.4 },
+                            { label: 'China', data: [1.2, 2.3, 6.0, 11.0, 14.7, 18.5], borderColor: '#f97316', tension: 0.4 }
+                        ]
+                    },
+                    options: { scales: { y: { grid: { color: '#1e293b' } }, x: { grid: { color: '#1e293b' } } } }
+                });
+
+                // Military Chart
+                new Chart(document.getElementById('militaryChart'), {
+                    type: 'doughnut',
+                    data: {
+                        labels: ['USA', 'China', 'Russia', 'India', 'Rest of World'],
+                        datasets: [{
+                            data: [877, 292, 86, 81, 904],
+                            backgroundColor: ['#3b82f6', '#f97316', '#ef4444', '#a855f7', '#475569'],
+                            borderWidth: 0
+                        }]
+                    },
+                    options: { plugins: { legend: { position: 'bottom' } } }
+                });
+
+                // Tech Chart (Bar)
+                new Chart(document.getElementById('techChart'), {
+                    type: 'bar',
+                    data: {
+                        labels: ['AI Models', 'Quantum Comp', 'Semiconductors', 'Biotech'],
+                        datasets: [
+                            { label: 'USA Lead Score', data: [95, 90, 85, 92], backgroundColor: '#3b82f6' },
+                            { label: 'China Challenge', data: [80, 88, 60, 85], backgroundColor: '#f97316' }
+                        ]
+                    },
+                    options: { scales: { y: { grid: { color: '#1e293b' }, beginAtZero: true } } }
+                });
+                // Radar Chart
+                new Chart(document.getElementById('powerRadar'), {
+                    type: 'radar',
+                    data: {
+                        labels: ['Economic', 'Military', 'Soft Power', 'Stability', 'Tech', 'Geography'],
+                        datasets: [{
+                            label: 'USA Power Stats',
+                            data: [100, 100, 90, 60, 95, 95],
+                            fill: true,
+                            backgroundColor: 'rgba(59, 130, 246, 0.2)',
+                            borderColor: '#3b82f6',
+                            pointBackgroundColor: '#3b82f6',
+                            pointBorderColor: '#fff',
+                            pointHoverBackgroundColor: '#fff',
+                            pointHoverBorderColor: '#3b82f6'
+                        }]
+                    },
+                    options: {
+                        scales: {
+                            r: {
+                                grid: { color: '#334155' },
+                                angleLines: { color: '#334155' },
+                                pointLabels: { color: '#94a3b8', font: { size: 12, family: 'Orbitron' } },
+                                suggestedMin: 0,
+                                suggestedMax: 100,
+                                ticks: { display: false }
+                            }
+                        },
+                        plugins: { legend: { display: false } }
+                    }
+                });
+            </script>
+        </section>
+
+    </main>
+
+    <footer class="bg-slate-900 py-8 text-center border-t border-slate-800 mt-20">
+        <p class="text-slate-500 text-sm">Geopolitics 101 created by Adarsh A educational purposes</p>
+    </footer>
+</body>
+
+</html>

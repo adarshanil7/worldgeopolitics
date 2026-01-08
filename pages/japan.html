@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Japan: The Anxious Ally - Geopolitics Dossier</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Roboto:wght@300;400;500;700&family=Merriweather:wght@300;400;700&display=swap"
+        rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #0f172a;
+            color: #f1f5f9;
+        }
+
+        .brand-font {
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        .book-font {
+            font-family: 'Merriweather', serif;
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #0f172a;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #ef4444;
+            border-radius: 4px;
+        }
+
+        .timeline-line {
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: #334155;
+            transform: translateX(-50%);
+        }
+    </style>
+</head>
+
+<body class="antialiased">
+    <nav class="sticky top-0 z-50 bg-slate-900/95 backdrop-blur border-b border-red-900/50">
+        <div class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="../world geopolitics2.html"
+                class="text-red-500 hover:text-white font-bold flex items-center gap-2">
+                <span>←</span> Back to Global Dashboard
+            </a>
+            <span class="brand-font text-xl text-white">DOSSIER: <span class="text-red-500">JAPAN</span></span>
+        </div>
+    </nav>
+
+    <header class="relative bg-slate-900 py-12 overflow-hidden border-b border-red-900">
+        <div
+            class="absolute inset-0 opacity-10 bg-[url('https://upload.wikimedia.org/wikipedia/en/9/9e/Flag_of_Japan.svg')] bg-cover bg-center">
+        </div>
+        <div class="max-w-7xl mx-auto px-4 relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <!-- Left: Text Info -->
+            <div>
+                <div class="text-6xl mb-4">🇯🇵</div>
+                <h1 class="text-5xl md:text-7xl font-black text-white mb-4 brand-font tracking-tight">THE ANXIOUS ALLY
+                </h1>
+                <p class="text-xl text-red-300 font-light italic mb-6">"Reiwa: Beautiful Harmony through Strength"</p>
+
+                <!-- The Hand -->
+                <div class="bg-slate-800/50 p-4 rounded-xl border border-red-500/30 mb-6">
+                    <h3 class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-3">The Hand (Key Resources)
+                    </h3>
+                    <div class="flex gap-4 text-2xl">
+                        <span title="Tech Giants">🤖</span>
+                        <span title="US Alliance">🛡️</span>
+                        <span title="Blue Water Navy">⚓</span>
+                        <span title="Capital/Investment">💴</span>
+                    </div>
+                </div>
+
+                <div class="flex gap-2 text-sm font-mono text-slate-400">
+                    <span class="border border-slate-600 px-3 py-1 rounded">GDP: $4.2T (4th)</span>
+                    <span class="border border-slate-600 px-3 py-1 rounded">Strategy: Keystone Ally</span>
+                </div>
+            </div>
+
+            <!-- Right: Radar Chart -->
+            <div class="bg-slate-800/50 p-6 rounded-2xl border border-red-500/20 backdrop-blur-sm">
+                <h3 class="text-center text-red-400 font-bold mb-2 brand-font">POWER STATS</h3>
+                <div class="h-64 sm:h-80">
+                    <canvas id="powerRadar"></canvas>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-5xl mx-auto px-4 py-12 space-y-20">
+
+        <section class="bg-slate-800/50 rounded-2xl p-8 border border-red-500/20">
+            <h2 class="text-3xl font-bold text-white mb-6 border-l-4 border-red-500 pl-4">Geography: The Shield</h2>
+            <div class="prose prose-invert max-w-none book-font text-slate-300 leading-relaxed">
+                <p class="mb-4">
+                    Japan is an archipelago of 6,852 islands. It acts as a "lid" on China's access to the Pacific Ocean
+                    (First Island Chain). This makes it indispensable to US strategy but also a primary target for
+                    Beijing.
+                </p>
+            </div>
+        </section>
+
+        <section>
+            <h2 class="text-3xl font-bold text-white mb-12 text-center border-b border-slate-700 pb-4">History &
+                Resentment</h2>
+            <div class="relative">
+                <div class="timeline-line hidden md:block"></div>
+
+                <div class="mb-12 flex flex-col md:flex-row items-center justify-between relative group">
+                    <div class="md:w-5/12 text-right pr-8">
+                        <h3 class="text-2xl font-bold text-red-500">1945: Total Defeat</h3>
+                        <p class="text-sm text-slate-500 mb-2">The Atomic Trauma</p>
+                        <p class="text-slate-300 book-font">Hiroshima & Nagasaki. Japan renounces war forever (Article
+                            9). It creates a pacifist identity but leaves it dependent on the US for survival.</p>
+                    </div>
+                    <div class="w-8 h-8 rounded-full bg-red-500 border-4 border-slate-900 z-10"></div>
+                    <div class="md:w-5/12 pl-8"></div>
+                </div>
+
+                <div class="mb-12 flex flex-col md:flex-row-reverse items-center justify-between relative group">
+                    <div class="md:w-5/12 text-left pl-8">
+                        <h3 class="text-2xl font-bold text-blue-400">1990s: The Lost Decades</h3>
+                        <p class="text-sm text-slate-500 mb-2">The Bubble Bursts</p>
+                        <p class="text-slate-300 book-font">The economic miracle ends. Stagnation sets in. Meanwhile,
+                            China rises to replace Japan as Asia's leader, creating deep anxiety and resentment.</p>
+                    </div>
+                    <div class="w-8 h-8 rounded-full bg-blue-500 border-4 border-slate-900 z-10"></div>
+                    <div class="md:w-5/12 pr-8"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- RELATIONSHIP MATRIX -->
+        <section class="bg-slate-900 rounded-3xl p-8 border border-slate-700 shadow-2xl">
+            <h2 class="text-3xl font-bold text-white mb-8 border-l-4 border-red-500 pl-4">Relationship Matrix</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- USA: Protector -->
+                <div class="bg-slate-800 p-6 rounded-xl border-t-4 border-blue-500">
+                    <div class="flex justify-between items-center mb-4">
+                        <h3 class="text-xl font-bold text-white">🇺🇸 USA</h3>
+                        <span class="text-xs bg-blue-900 text-blue-100 px-2 py-1 rounded">PROTECTOR</span>
+                    </div>
+                    <!-- Meter -->
+                    <div class="w-full bg-slate-700 h-4 rounded-full mb-2 relative overflow-hidden">
+                        <div class="bg-gradient-to-r from-blue-600 to-green-400 h-full absolute top-0 left-0"
+                            style="width: 95%"></div>
+                        <div class="absolute top-0 bottom-0 left-1/2 w-0.5 bg-slate-500"></div>
+                    </div>
+                    <div class="flex justify-between text-xs text-slate-400 mb-4">
+                        <span>Hostile</span>
+                        <span>Vital Ally (+95)</span>
+                    </div>
+                    <p class="text-sm text-slate-300 mb-2"><strong>Context:</strong> "The Anxious Ally." Fears US
+                        abandonment above all else.</p>
+                </div>
+
+                <!-- China: Rival -->
+                <div class="bg-slate-800 p-6 rounded-xl border-t-4 border-red-500">
+                    <div class="flex justify-between items-center mb-4">
+                        <h3 class="text-xl font-bold text-white">🇨🇳 CHINA</h3>
+                        <span class="text-xs bg-red-900 text-red-100 px-2 py-1 rounded">HISTORIC RIVAL</span>
+                    </div>
+                    <!-- Meter -->
+                    <div class="w-full bg-slate-700 h-4 rounded-full mb-2 relative overflow-hidden">
+                        <div class="bg-gradient-to-r from-red-600 to-red-400 h-full absolute top-0 left-0"
+                            style="width: 25%"></div>
+                        <div class="absolute top-0 bottom-0 left-1/2 w-0.5 bg-slate-500"></div>
+                    </div>
+                    <div class="flex justify-between text-xs text-slate-400 mb-4">
+                        <span>Hostile (-75)</span>
+                        <span>Friendly</span>
+                    </div>
+                    <p class="text-sm text-slate-300 mb-2"><strong>Flashpoint:</strong> Senkaku Islands. Japan fears
+                        Chinese hegemony.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SWOT ANALYSIS -->
+        <section class="max-w-7xl mx-auto">
+            <h2 class="text-3xl font-bold text-white mb-8 border-l-4 border-red-500 pl-4">Strategic SWOT</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Strengths -->
+                <div class="bg-slate-800/80 p-6 rounded-xl border border-green-500/30">
+                    <div class="flex items-center gap-3 mb-4">
+                        <span class="text-2xl">💪</span>
+                        <h3 class="text-xl font-bold text-green-400">STRENGTHS</h3>
+                    </div>
+                    <ul class="list-disc list-inside text-slate-300 space-y-2">
+                        <li><strong>High Tech:</strong> Robotics, Cars, Materials.</li>
+                        <li><strong>Navy:</strong> Highly advanced JMSDF.</li>
+                        <li><strong>Soft Power:</strong> Anime, Culture, Stability.</li>
+                    </ul>
+                </div>
+                <!-- Weaknesses -->
+                <div class="bg-slate-800/80 p-6 rounded-xl border border-red-500/30">
+                    <div class="flex items-center gap-3 mb-4">
+                        <span class="text-2xl">⚠️</span>
+                        <h3 class="text-xl font-bold text-red-400">WEAKNESSES</h3>
+                    </div>
+                    <ul class="list-disc list-inside text-slate-300 space-y-2">
+                        <li><strong>Demographics:</strong> Fastest aging population.</li>
+                        <li><strong>Energy:</strong> 90% import dependent.</li>
+                        <li><strong>Pacifism:</strong> Constitution limits offensive capability.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- SITUATION ROOM (CHARTS) -->
+        <section class="bg-slate-900 rounded-3xl p-8 border border-slate-700 shadow-2xl">
+            <h2 class="text-3xl font-bold text-white mb-8 flex items-center gap-3">
+                <span class="text-red-500">📊</span> THE SITUATION ROOM
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Chart 1: Demographics -->
+                <div class="bg-slate-800 p-4 rounded-xl">
+                    <h3 class="text-sm font-bold text-slate-400 mb-4 text-center">AGING CRISIS (POPULATION M)</h3>
+                    <canvas id="popChart"></canvas>
+                </div>
+                <!-- Chart 2: Defense -->
+                <div class="bg-slate-800 p-4 rounded-xl">
+                    <h3 class="text-sm font-bold text-slate-400 mb-4 text-center">DEFENSE SPENDING ($B)</h3>
+                    <canvas id="defChart"></canvas>
+                </div>
+            </div>
+            <script>
+                Chart.defaults.color = '#94a3b8';
+                // Pop Chart
+                new Chart(document.getElementById('popChart'), {
+                    type: 'line',
+                    data: {
+                        labels: ['2010', '2020', '2030 (Est)', '2050 (Est)'],
+                        datasets: [{ label: 'Population', data: [128, 126, 119, 100], borderColor: '#ef4444' }]
+                    }, options: { scales: { y: { grid: { color: '#1e293b' } }, x: { grid: { color: '#1e293b' } } } }
+                });
+                // Defense Chart
+                new Chart(document.getElementById('defChart'), {
+                    type: 'bar',
+                    data: {
+                        labels: ['2020', '2022', '2027 (Target)'],
+                        datasets: [{ label: 'Budget', data: [49, 54, 80], backgroundColor: '#ef4444' }]
+                    }, options: { scales: { y: { grid: { color: '#1e293b' } }, x: { grid: { color: '#1e293b' } } } }
+                });
+                // Radar Chart
+                new Chart(document.getElementById('powerRadar'), {
+                    type: 'radar',
+                    data: {
+                        labels: ['Economic', 'Military', 'Soft Power', 'Stability', 'Tech', 'Geography'],
+                        datasets: [{
+                            label: 'Japan Power Stats',
+                            data: [85, 60, 90, 90, 95, 40],
+                            fill: true,
+                            backgroundColor: 'rgba(239, 68, 68, 0.2)',
+                            borderColor: '#ef4444',
+                            pointBackgroundColor: '#ef4444',
+                            pointBorderColor: '#fff',
+                            pointHoverBackgroundColor: '#fff',
+                            pointHoverBorderColor: '#ef4444'
+                        }]
+                    },
+                    options: {
+                        scales: {
+                            r: {
+                                grid: { color: '#334155' },
+                                angleLines: { color: '#334155' },
+                                pointLabels: { color: '#94a3b8', font: { size: 12, family: 'Orbitron' } },
+                                suggestedMin: 0,
+                                suggestedMax: 100,
+                                ticks: { display: false }
+                            }
+                        },
+                        plugins: { legend: { display: false } }
+                    }
+                });
+            </script>
+        </section>
+    </main>
+    <footer class="bg-slate-900 py-8 text-center border-t border-slate-800 mt-20">
+        <p class="text-slate-500 text-sm">Geopolitics 101 created by Adarsh A educational purposes</p>
+    </footer>
+</body>
+
+</html>

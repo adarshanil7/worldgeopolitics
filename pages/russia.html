@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Russia: The Fortress - Geopolitics Dossier</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Roboto:wght@300;400;500;700&family=Merriweather:wght@300;400;700&display=swap"
+        rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #0f172a;
+            color: #f1f5f9;
+        }
+
+        .brand-font {
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        .book-font {
+            font-family: 'Merriweather', serif;
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #0f172a;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #ef4444;
+            border-radius: 4px;
+        }
+
+        .timeline-line {
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: #334155;
+            transform: translateX(-50%);
+        }
+    </style>
+</head>
+
+<body class="antialiased">
+    <nav class="sticky top-0 z-50 bg-slate-900/95 backdrop-blur border-b border-red-900/50">
+        <div class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="../world geopolitics2.html"
+                class="text-red-500 hover:text-white font-bold flex items-center gap-2">
+                <span>←</span> Back to Global Dashboard
+            </a>
+            <span class="brand-font text-xl text-white">DOSSIER: <span class="text-red-500">RUSSIA</span></span>
+        </div>
+    </nav>
+
+    <header class="relative bg-slate-900 py-12 overflow-hidden border-b border-red-900">
+        <div
+            class="absolute inset-0 opacity-10 bg-[url('https://upload.wikimedia.org/wikipedia/en/f/f3/Flag_of_Russia.svg')] bg-cover bg-center">
+        </div>
+        <div class="max-w-7xl mx-auto px-4 relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <!-- Left: Text Info -->
+            <div>
+                <div class="text-6xl mb-4">🇷🇺</div>
+                <h1 class="text-5xl md:text-7xl font-black text-white mb-4 brand-font tracking-tight">THE DISRUPTOR</h1>
+                <p class="text-xl text-red-300 font-light italic mb-6">"Strategic Depth Over Prosperity"</p>
+
+                <!-- The Hand -->
+                <div class="bg-slate-800/50 p-4 rounded-xl border border-red-500/30 mb-6">
+                    <h3 class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-3">The Hand (Key Resources)
+                    </h3>
+                    <div class="flex gap-4 text-2xl">
+                        <span title="Nuclear Arsenal">☢️</span>
+                        <span title="Energy Superpower">🛢️</span>
+                        <span title="Food Security (Grain)">🌾</span>
+                        <span title="Arctic Route">❄️</span>
+                    </div>
+                </div>
+
+                <div class="flex gap-2 text-sm font-mono text-slate-400">
+                    <span class="border border-slate-600 px-3 py-1 rounded">GDP: $2T (11th)</span>
+                    <span class="border border-slate-600 px-3 py-1 rounded">Strategy: Fortress Russia</span>
+                </div>
+            </div>
+
+            <!-- Right: Radar Chart -->
+            <div class="bg-slate-800/50 p-6 rounded-2xl border border-red-500/20 backdrop-blur-sm">
+                <h3 class="text-center text-red-400 font-bold mb-2 brand-font">POWER STATS</h3>
+                <div class="h-64 sm:h-80">
+                    <canvas id="powerRadar"></canvas>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-5xl mx-auto px-4 py-12 space-y-20">
+        <section class="bg-slate-800/50 rounded-2xl p-8 border border-red-500/20">
+            <h2 class="text-3xl font-bold text-white mb-6 border-l-4 border-red-500 pl-4">The Paranoia of Geography</h2>
+            <div class="prose prose-invert max-w-none book-font text-slate-300 leading-relaxed">
+                <p class="mb-4">
+                    Russia is the largest country on Earth, but it feels small and vulnerable. It has no natural
+                    mountain barriers in the West (The North European Plain), making it easy to invade (Napoleon,
+                    Hitler).
+                </p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 my-8">
+                    <div>
+                        <h3 class="font-bold text-red-400 mb-2">1. Warm Water Ports</h3>
+                        <p>Most of Russia's ports freeze in winter. It lacks easy access to global trade. This is why
+                            Crimea (Black Sea) is existential—it is their only reliable warm water naval base.</p>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-red-400 mb-2">2. Strategic Depth</h3>
+                        <p>To feel safe, Russia pushes its borders out as far as possible to create "buffer zones." An
+                            independent, NATO-aligned Ukraine destroys this buffer, which Russia views as a direct
+                            threat.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2 class="text-3xl font-bold text-white mb-12 text-center border-b border-slate-700 pb-4">The Chronicles:
+                Collapse & Resurgence</h2>
+            <div class="relative">
+                <div class="timeline-line hidden md:block"></div>
+
+                <div class="mb-12 flex flex-col md:flex-row items-center justify-between relative group">
+                    <div class="md:w-5/12 text-right pr-8">
+                        <h3 class="text-2xl font-bold text-slate-400">1991: The Collapse</h3>
+                        <p class="text-sm text-slate-500 mb-2">End of Empire</p>
+                        <p class="text-slate-300 book-font">The USSR dissolves. Russia loses 1/3 of its territory and
+                            1/2 of its population overnight. The 90s are a decade of humiliation and economic ruin.</p>
+                    </div>
+                    <div class="w-8 h-8 rounded-full bg-slate-600 border-4 border-slate-900 z-10"></div>
+                    <div class="md:w-5/12 pl-8"></div>
+                </div>
+
+                <div class="mb-12 flex flex-col md:flex-row-reverse items-center justify-between relative group">
+                    <div class="md:w-5/12 text-left pl-8">
+                        <h3 class="text-2xl font-bold text-red-400">2000: Putin Era Begins</h3>
+                        <p class="text-sm text-slate-500 mb-2">State Consolidation</p>
+                        <p class="text-slate-300 book-font">Vladimir Putin takes power. He crushes oligarchs,
+                            recentralizes power, and leverages high oil prices to rebuild the military.</p>
+                    </div>
+                    <div
+                        class="w-8 h-8 rounded-full bg-red-500 border-4 border-slate-900 z-10 shadow-[0_0_15px_rgba(239,68,68,0.5)]">
+                    </div>
+                    <div class="md:w-5/12 pr-8"></div>
+                </div>
+
+                <div class="mb-12 flex flex-col md:flex-row items-center justify-between relative group">
+                    <div class="md:w-5/12 text-right pr-8">
+                        <h3 class="text-2xl font-bold text-orange-400">2014: Annexation of Crimea</h3>
+                        <p class="text-sm text-slate-500 mb-2">The Pivot</p>
+                        <p class="text-slate-300 book-font">Response to the Maidan Revolution in Ukraine. Russia takes
+                            Crimea to secure the Black Sea Fleet. The West imposes sanctions; Russia begins "Pivot to
+                            Asia."</p>
+                    </div>
+                    <div class="w-8 h-8 rounded-full bg-orange-500 border-4 border-slate-900 z-10"></div>
+                    <div class="md:w-5/12 pl-8"></div>
+                </div>
+
+                <div class="mb-12 flex flex-col md:flex-row-reverse items-center justify-between relative group">
+                    <div class="md:w-5/12 text-left pl-8">
+                        <h3 class="text-2xl font-bold text-red-600">2022: Invasion of Ukraine</h3>
+                        <p class="text-sm text-slate-500 mb-2">Total War</p>
+                        <p class="text-slate-300 book-font">Russia launches a full-scale invasion. The goal: dismantle
+                            the Ukrainian state. The result: Russia is cut off from the West and becomes dependent on
+                            China.</p>
+                    </div>
+                    <div
+                        class="w-8 h-8 rounded-full bg-red-600 border-4 border-slate-900 z-10 shadow-[0_0_15px_rgba(220,38,38,0.5)]">
+                    </div>
+                    <div class="md:w-5/12 pr-8"></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="bg-slate-800 p-6 rounded-xl border-t-4 border-yellow-500">
+                <h3 class="text-xl font-bold mb-4">Commodity Superpower</h3>
+                <p class="text-slate-400 text-sm">Russia is the #1 or #2 exporter of Wheat, Fertilizer, Gas, and
+                    Aluminum. It can hold the global food and energy supply hostage.</p>
+            </div>
+            <div class="bg-slate-800 p-6 rounded-xl border-t-4 border-red-500">
+                <h3 class="text-xl font-bold mb-4">War Economy</h3>
+                <p class="text-slate-400 text-sm">Currently spending ~6-7% of GDP on defense. While sustainable in the
+                    short term, it hollows out civilian infrastructure and education.</p>
+            </div>
+            <div class="bg-slate-800 p-6 rounded-xl border-t-4 border-blue-500">
+                <h3 class="text-xl font-bold mb-4">The Arctic</h3>
+                <p class="text-slate-400 text-sm">Global warming is opening the "Northern Sea Route." Control of this
+                    route gives Russia a new maritime corridor to China, bypassing Western chokepoints.</p>
+            </div>
+        </section>
+
+        </section>
+
+        </section>
+
+        <!-- RELATIONSHIP MATRIX -->
+        <section class="bg-slate-900 rounded-3xl p-8 border border-slate-700 shadow-2xl">
+            <h2 class="text-3xl font-bold text-white mb-8 border-l-4 border-red-500 pl-4">Relationship Matrix</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- NATO: Enemy -->
+                <div class="bg-slate-800 p-6 rounded-xl border-t-4 border-slate-500">
+                    <div class="flex justify-between items-center mb-4">
+                        <h3 class="text-xl font-bold text-white">🇪🇺 NATO</h3>
+                        <span class="text-xs bg-slate-900 text-slate-100 px-2 py-1 rounded">EXISTENTIAL THREAT</span>
+                    </div>
+                    <!-- Meter -->
+                    <div class="w-full bg-slate-700 h-4 rounded-full mb-2 relative overflow-hidden">
+                        <div class="bg-gradient-to-r from-red-600 to-red-900 h-full absolute top-0 left-0"
+                            style="width: 100%"></div>
+                        <div class="absolute top-0 bottom-0 left-1/2 w-0.5 bg-slate-500"></div>
+                    </div>
+                    <div class="flex justify-between text-xs text-slate-400 mb-4">
+                        <span>High Alert (-100)</span>
+                        <span>Friendly</span>
+                    </div>
+                    <p class="text-sm text-slate-300 mb-2"><strong>Context:</strong> Proxy war in Ukraine. Sanctions
+                        war.</p>
+                </div>
+
+                <!-- China: Partner -->
+                <div class="bg-slate-800 p-6 rounded-xl border-t-4 border-orange-500">
+                    <div class="flex justify-between items-center mb-4">
+                        <h3 class="text-xl font-bold text-white">🇨🇳 CHINA</h3>
+                        <span class="text-xs bg-orange-900 text-orange-100 px-2 py-1 rounded">LIFELINE</span>
+                    </div>
+                    <!-- Meter -->
+                    <div class="w-full bg-slate-700 h-4 rounded-full mb-2 relative overflow-hidden">
+                        <div class="bg-gradient-to-r from-orange-600 to-green-400 h-full absolute top-0 left-0"
+                            style="width: 80%"></div>
+                        <div class="absolute top-0 bottom-0 left-1/2 w-0.5 bg-slate-500"></div>
+                    </div>
+                    <div class="flex justify-between text-xs text-slate-400 mb-4">
+                        <span>Hostile</span>
+                        <span>Aligned (+80)</span>
+                    </div>
+                    <p class="text-sm text-slate-300 mb-2"><strong>Interdependence:</strong> Asymmetric. Russia needs
+                        Chinese markets and tech more than China needs Russia.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SWOT ANALYSIS -->
+        <section class="max-w-7xl mx-auto">
+            <h2 class="text-3xl font-bold text-white mb-8 border-l-4 border-red-500 pl-4">Strategic SWOT</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Strengths -->
+                <div class="bg-slate-800/80 p-6 rounded-xl border border-green-500/30">
+                    <div class="flex items-center gap-3 mb-4">
+                        <span class="text-2xl">💪</span>
+                        <h3 class="text-xl font-bold text-green-400">STRENGTHS</h3>
+                    </div>
+                    <ul class="list-disc list-inside text-slate-300 space-y-2">
+                        <li><strong>Resources:</strong> Self-sufficient in food/energy.</li>
+                        <li><strong>Geography:</strong> Too big to conquer?</li>
+                        <li><strong>Resilience:</strong> High societal pain tolerance.</li>
+                    </ul>
+                </div>
+                <!-- Weaknesses -->
+                <div class="bg-slate-800/80 p-6 rounded-xl border border-red-500/30">
+                    <div class="flex items-center gap-3 mb-4">
+                        <span class="text-2xl">⚠️</span>
+                        <h3 class="text-xl font-bold text-red-400">WEAKNESSES</h3>
+                    </div>
+                    <ul class="list-disc list-inside text-slate-300 space-y-2">
+                        <li><strong>Demographics:</strong> Terminal decline (Alcoholism/War).</li>
+                        <li><strong>Brain Drain:</strong> IT/Youth flight.</li>
+                        <li><strong>Economy:</strong> One-trick pony (commodities).</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- SITUATION ROOM (CHARTS) -->
+        <section class="bg-slate-900 rounded-3xl p-8 border border-slate-700 shadow-2xl">
+            <h2 class="text-3xl font-bold text-white mb-8 flex items-center gap-3">
+                <span class="text-red-500">📊</span> THE SITUATION ROOM
+            </h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Chart 1: Defense Spend -->
+                <div class="bg-slate-800 p-4 rounded-xl">
+                    <h3 class="text-sm font-bold text-slate-400 mb-4 text-center">DEFENSE SPENDING (% GDP)</h3>
+                    <canvas id="defenseChart"></canvas>
+                </div>
+                <!-- Chart 2: Oil Exports -->
+                <div class="bg-slate-800 p-4 rounded-xl">
+                    <h3 class="text-sm font-bold text-slate-400 mb-4 text-center">OIL EXPORT DESTINATIONS (2023)</h3>
+                    <canvas id="oilChart"></canvas>
+                </div>
+                <!-- Chart 3: Nukes -->
+                <div class="bg-slate-800 p-4 rounded-xl">
+                    <h3 class="text-sm font-bold text-slate-400 mb-4 text-center">NUCLEAR STOCKPILES</h3>
+                    <canvas id="nukeChart"></canvas>
+                </div>
+            </div>
+
+            <script>
+                Chart.defaults.color = '#94a3b8';
+                Chart.defaults.font.family = 'Roboto';
+
+                // Defense Chart
+                new Chart(document.getElementById('defenseChart'), {
+                    type: 'bar',
+                    data: {
+                        labels: ['2020', '2021', '2022', '2023', '2024 (Est)'],
+                        datasets: [
+                            { label: 'Russia % GDP', data: [3.8, 4.1, 4.5, 6.0, 7.1], backgroundColor: '#ef4444' }
+                        ]
+                    },
+                    options: { scales: { y: { grid: { color: '#1e293b' }, beginAtZero: true } } }
+                });
+
+                // Oil Chart (Pie)
+                new Chart(document.getElementById('oilChart'), {
+                    type: 'doughnut',
+                    data: {
+                        labels: ['China', 'India', 'Turkey', 'EU (Pipeline)', 'Others'],
+                        datasets: [{
+                            data: [45, 35, 10, 5, 5],
+                            backgroundColor: ['#f97316', '#a855f7', '#fbbf24', '#10b981', '#475569'],
+                            borderWidth: 0
+                        }]
+                    },
+                    options: { plugins: { legend: { position: 'bottom' } } }
+                });
+
+                // Nuke Chart
+                new Chart(document.getElementById('nukeChart'), {
+                    type: 'bar',
+                    data: {
+                        labels: ['Russia', 'USA', 'China', 'France', 'UK'],
+                        datasets: [
+                            { label: 'Warheads', data: [5889, 5244, 500, 290, 225], backgroundColor: ['#ef4444', '#3b82f6', '#f97316', '#10b981', '#fbbf24'] }
+                        ]
+                    },
+                    options: {
+                        indexAxis: 'y',
+                        scales: { x: { grid: { color: '#1e293b' } } }
+                    }
+                });
+                // Radar Chart
+                new Chart(document.getElementById('powerRadar'), {
+                    type: 'radar',
+                    data: {
+                        labels: ['Economic', 'Military', 'Soft Power', 'Stability', 'Tech', 'Geography'],
+                        datasets: [{
+                            label: 'Russia Power Stats',
+                            data: [50, 90, 30, 60, 50, 90],
+                            fill: true,
+                            backgroundColor: 'rgba(239, 68, 68, 0.2)',
+                            borderColor: '#ef4444',
+                            pointBackgroundColor: '#ef4444',
+                            pointBorderColor: '#fff',
+                            pointHoverBackgroundColor: '#fff',
+                            pointHoverBorderColor: '#ef4444'
+                        }]
+                    },
+                    options: {
+                        scales: {
+                            r: {
+                                grid: { color: '#334155' },
+                                angleLines: { color: '#334155' },
+                                pointLabels: { color: '#94a3b8', font: { size: 12, family: 'Orbitron' } },
+                                suggestedMin: 0,
+                                suggestedMax: 100,
+                                ticks: { display: false }
+                            }
+                        },
+                        plugins: { legend: { display: false } }
+                    }
+                });
+            </script>
+        </section>
+
+    </main>
+    <footer class="bg-slate-900 py-8 text-center border-t border-slate-800 mt-20">
+        <p class="text-slate-500 text-sm">Geopolitics 101 created by Adarsh A educational purposes</p>
+    </footer>
+</body>
+
+</html>

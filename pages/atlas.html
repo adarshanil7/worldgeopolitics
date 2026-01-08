@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Geopolitical Atlas - War Room Map</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Roboto:wght@300;400;500;700&display=swap"
+        rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #0f172a;
+            color: #f1f5f9;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            /* Full screen map */
+        }
+
+        .brand-font {
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        #map {
+            height: 100vh;
+            width: 100vw;
+            z-index: 1;
+        }
+
+        /* Custom Popup Styles */
+        .leaflet-popup-content-wrapper {
+            background: rgba(15, 23, 42, 0.95);
+            color: #f1f5f9;
+            border: 1px solid #334155;
+            border-radius: 0.75rem;
+            backdrop-filter: blur(4px);
+        }
+
+        .leaflet-popup-tip {
+            background: rgba(15, 23, 42, 0.95);
+            border: 1px solid #334155;
+        }
+
+        .leaflet-popup-content {
+            margin: 1rem;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        .leaflet-container a.leaflet-popup-close-button {
+            color: #94a3b8;
+        }
+
+        /* UI Overlay */
+        .map-overlay {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            z-index: 1000;
+            background: rgba(15, 23, 42, 0.9);
+            padding: 1rem;
+            border-radius: 1rem;
+            border: 1px solid #334155;
+            backdrop-filter: blur(4px);
+            max-width: 300px;
+        }
+
+        .layer-control {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background: rgba(15, 23, 42, 0.9);
+            padding: 1rem;
+            border-radius: 1rem;
+            border: 1px solid #334155;
+            backdrop-filter: blur(4px);
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header Overlay -->
+    <div class="map-overlay shadow-2xl">
+        <a href="../world geopolitics2.html"
+            class="text-blue-400 hover:text-white font-bold flex items-center gap-2 mb-2 text-sm">
+            <span>←</span> Dashboard
+        </a>
+        <h1 class="text-2xl font-black text-white brand-font mb-1">GLOBAL ATLAS</h1>
+        <p class="text-xs text-slate-400">Interactive Situation Room</p>
+    </div>
+
+    <!-- Map Container -->
+    <div id="map"></div>
+
+    <script>
+        // 1. Initialize Map
+        // Centered on "World Island" (Middle East/Central Asia)
+        const map = L.map('map').setView([30, 60], 3);
+
+        // 2. Add Tiles (CartoDB Dark Matter for Cyber aesthetic)
+        L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+            subdomains: 'abcd',
+            maxZoom: 19
+        }).addTo(map);
+
+        // --- ICONS ---
+        const powerIcon = (emoji) => L.divIcon({
+            className: 'custom-div-icon',
+            html: `<div style="font-size: 24px;">${emoji}</div>`,
+            iconSize: [30, 42],
+            iconAnchor: [15, 42]
+        });
+
+        // --- DATA LAYERS ---
+
+        // A. MAJOR POWERS (Links to Dossiers)
+        const powersData = [
+            { name: "USA", coords: [38.9, -77.0], emoji: "🇺🇸", link: "usa.html", desc: "The Eagle's Nest" },
+            { name: "China", coords: [39.9, 116.4], emoji: "🇨🇳", link: "china.html", desc: "The Middle Kingdom" },
+            { name: "Russia", coords: [55.7, 37.6], emoji: "🇷🇺", link: "russia.html", desc: "The Bear" },
+            { name: "India", coords: [28.6, 77.2], emoji: "🇮🇳", link: "india.html", desc: "The Elephant" },
+            { name: "EU (Brussels)", coords: [50.8, 4.3], emoji: "🇪🇺", link: "eu.html", desc: "The Garden" },
+            { name: "Japan", coords: [35.6, 139.6], emoji: "🇯🇵", link: "japan.html", desc: "The Samurai" },
+            { name: "UK", coords: [51.5, -0.1], emoji: "🇬🇧", link: "uk.html", desc: "The Lion" },
+            { name: "Turkey", coords: [39.9, 32.8], emoji: "🇹🇷", link: "turkey.html", desc: "Neo-Ottoman" },
+            { name: "Iran", coords: [35.7, 51.4], emoji: "🇮🇷", link: "iran.html", desc: "Axis of Resistance" },
+            { name: "Saudi Arabia", coords: [24.7, 46.6], emoji: "🇸🇦", link: "saudi_arabia.html", desc: "Oil Kingdom" },
+            { name: "Brazil", coords: [-15.8, -47.9], emoji: "🇧🇷", link: "brazil.html", desc: "Agri-Giant" }
+        ];
+
+        const powersLayer = L.layerGroup();
+        powersData.forEach(p => {
+            const marker = L.marker(p.coords, { icon: powerIcon(p.emoji) });
+            marker.bindPopup(`
+                <div class="text-center">
+                    <div class="text-3xl mb-2">${p.emoji}</div>
+                    <h3 class="font-bold text-lg text-white mb-1">${p.name}</h3>
+                    <p class="text-sm text-slate-400 mb-3">${p.desc}</p>
+                    <a href="${p.link}" class="inline-block bg-blue-600 hover:bg-blue-500 text-white text-xs font-bold py-2 px-4 rounded transition">OPEN DOSSIER</a>
+                </div>
+            `);
+            powersLayer.addLayer(marker);
+        });
+        powersLayer.addTo(map); // Default on
+
+
+        // B. STRATEGIC CHOKEPOINTS (Circles)
+        const chokepointsData = [
+            { name: "Strait of Malacca", coords: [4.2, 99], radius: 150000, color: "#f59e0b", desc: "25% of Global Trade. China's main vulnerability." },
+            { name: "Strait of Hormuz", coords: [26.5, 56.4], radius: 80000, color: "#f59e0b", desc: "20% of Global Oil. Iran can block this." },
+            { name: "Suez Canal", coords: [30.5, 32.3], radius: 60000, color: "#f59e0b", desc: "Europe-Asia shortcut. 12% of Global Trade." },
+            { name: "Bab-el-Mandeb", coords: [12.6, 43.3], radius: 80000, color: "#f59e0b", desc: "Red Sea entry. Houthi attacks zone." },
+            { name: "Panama Canal", coords: [9.1, -79.6], radius: 60000, color: "#f59e0b", desc: "Atlantic-Pacific gateway." },
+            { name: "Bosphorus Strait", coords: [41, 29], radius: 40000, color: "#f59e0b", desc: "Russian Black Sea Fleet exit. Controlled by Turkey." }
+        ];
+
+        const chokepointsLayer = L.layerGroup();
+        chokepointsData.forEach(c => {
+            const circle = L.circle(c.coords, {
+                color: c.color,
+                fillColor: c.color,
+                fillOpacity: 0.2,
+                radius: c.radius
+            });
+            circle.bindPopup(`
+                <div>
+                    <h3 class="font-bold text-orange-400 mb-1">⚠️ ${c.name}</h3>
+                    <p class="text-sm text-slate-300">${c.desc}</p>
+                </div>
+            `);
+            chokepointsLayer.addLayer(circle);
+        });
+
+
+        // C. FLASHPOINTS (Pulsing/Red)
+        const flashpointsData = [
+            { name: "Ukraine (Donbas)", coords: [48, 38], color: "#ef4444", desc: "Active War. Russia vs NATO proxies. Artillery grind." },
+            { name: "Taiwan Strait", coords: [24, 119], color: "#ef4444", desc: "Potential Invasion. Chip supply chain choke." },
+            { name: "Gaza / Israel", coords: [31.5, 34.4], color: "#ef4444", desc: "Urban War. Regional destabilizer." },
+            { name: "South China Sea", coords: [12, 113], color: "#ef4444", desc: "Maritime disputes. China vs Philippines/Vietnam." },
+            { name: "Kashmir", coords: [34, 76], color: "#ef4444", desc: "Nuclear Flashpoint. India vs Pakistan/China." },
+            { name: "Sahel Belt", coords: [15, 0], color: "#ef4444", desc: "Coup Belt. Wagner (Russia) displaces France." }
+        ];
+
+        const flashpointsLayer = L.layerGroup();
+        flashpointsData.forEach(f => {
+            const circle = L.circleMarker(f.coords, {
+                radius: 10,
+                color: f.color,
+                fillColor: f.color,
+                fillOpacity: 0.8
+            });
+            circle.bindPopup(`
+                <div>
+                    <h3 class="font-bold text-red-500 mb-1">🔥 ${f.name}</h3>
+                    <p class="text-sm text-slate-300">${f.desc}</p>
+                </div>
+            `);
+            flashpointsLayer.addLayer(circle);
+        });
+        flashpointsLayer.addTo(map); // Default on
+
+        // 3. Layer Controls
+        const overlayMaps = {
+            "Major Powers": powersLayer,
+            "Chokepoints": chokepointsLayer,
+            "Conflict Zones": flashpointsLayer
+        };
+
+        L.control.layers(null, overlayMaps, {
+            position: 'topright',
+            collapsed: false
+        }).addTo(map);
+
+    </script>
+</body>
+
+</html>
