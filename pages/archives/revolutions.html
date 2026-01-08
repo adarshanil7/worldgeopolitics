@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Age of Revolutions - History Archives</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Merriweather:wght@300;400;700&family=Cinzel:wght@400;700&display=swap"
+        rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Merriweather', serif;
+            background-color: #0f172a;
+            color: #cbd5e1;
+        }
+
+        .brand-font {
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        .header-font {
+            font-family: 'Cinzel', serif;
+        }
+
+        .chapter-dropcap {
+            float: left;
+            font-size: 4rem;
+            line-height: 0.8;
+            font-weight: bold;
+            color: #ef4444;
+            margin-right: 0.5rem;
+            font-family: 'Cinzel', serif;
+        }
+    </style>
+</head>
+
+<body class="antialiased selection:bg-red-900 selection:text-white">
+
+    <nav class="fixed top-0 z-50 w-full bg-slate-900/95 backdrop-blur border-b border-slate-700">
+        <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+            <a href="../europe_history.html"
+                class="flex items-center gap-2 group text-slate-400 hover:text-red-500 transition">
+                <span>←</span>
+                <span class="text-sm font-bold brand-font tracking-widest">BACK TO ARCHIVES</span>
+            </a>
+            <span class="text-slate-500 text-xs font-mono">CHAPTER 2: REVOLUTIONS</span>
+        </div>
+    </nav>
+
+    <header class="relative h-screen w-full flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0 bg-cover bg-center"
+            style="background-image: url('../../assets/images/french_revolution_bastille.png');"></div>
+        <div class="absolute inset-0 bg-gradient-to-b from-slate-900/40 via-slate-900/80 to-slate-900"></div>
+        <div class="relative z-10 text-center px-4 max-w-4xl">
+            <span class="block text-red-500 font-bold tracking-[0.3em] mb-4 brand-font">1789 — 1848</span>
+            <h1 class="text-6xl md:text-8xl font-bold text-white mb-6 header-font text-shadow-lg">Blood & Ideas</h1>
+            <p class="text-xl md:text-2xl text-slate-300 italic font-light">"The Guillotine was the razor that shaved
+                the world clean of Kings."</p>
+        </div>
+    </header>
+
+    <main class="max-w-5xl mx-auto px-6 py-24 grid grid-cols-1 lg:grid-cols-12 gap-12">
+        <aside class="hidden lg:block lg:col-span-3 sticky top-32 h-fit">
+            <nav class="space-y-4 border-l border-slate-700 pl-4">
+                <a href="#intro"
+                    class="block text-red-500 font-bold text-sm uppercase tracking-widest hover:pl-2 transition-all">I.
+                    The Guillotine</a>
+                <a href="#napoleon"
+                    class="block text-slate-400 hover:text-red-500 text-sm uppercase tracking-widest hover:pl-2 transition-all">II.
+                    Napoleon</a>
+                <a href="#vienna"
+                    class="block text-slate-400 hover:text-red-500 text-sm uppercase tracking-widest hover:pl-2 transition-all">III.
+                    Vienna</a>
+            </nav>
+        </aside>
+
+        <article class="col-span-1 lg:col-span-9 space-y-20">
+            <section id="intro" class="prose prose-invert prose-lg max-w-none">
+                <p class="lead text-2xl text-slate-200 leading-relaxed">
+                    <span class="chapter-dropcap">I</span>t began with bread and ended with blood. The French Revolution
+                    (1789) was the watershed moment of modern history. It proved that the "Divine Right of Kings" was a
+                    lie. If a King could bleed, he could be replaced.
+                </p>
+                <p>
+                    But unlike the "Bloodless" Glorious Revolution in England (1688), France chose the path of total
+                    purification. The Reign of Terror showed the dark side of idealism: that the road to Liberty is
+                    often paved with heads.
+                </p>
+            </section>
+
+            <section id="napoleon" class="border-t border-slate-800 pt-12">
+                <h2 class="text-3xl font-bold text-white header-font mb-8">II. The Napoleon Factor</h2>
+                <div class="bg-slate-800 p-8 rounded-xl border-l-4 border-red-500 mb-8">
+                    <p class="text-slate-300 italic">"I saw the Emperor – this world-soul – riding out of the city on
+                        reconnaissance." — Hegel</p>
+                </div>
+                <p class="text-slate-300 leading-8">
+                    Napoleon Bonaparte was the Revolution on horseback. He codified its laws (Napoleonic Code) and
+                    exported them across Europe at the tip of a bayonet. He destroyed the old Feudal map, dissolving the
+                    Holy Roman Empire and planting the seeds of German and Italian nationalism.
+                </p>
+            </section>
+
+            <section id="vienna" class="border-t border-slate-800 pt-12 pb-24">
+                <h2 class="text-3xl font-bold text-white header-font mb-8">III. The Congress of Vienna (1815)</h2>
+                <p class="text-slate-300 leading-8">
+                    After Napoleon's defeat, the old Monarchs met in Vienna to turn back the clock. Led by Metternich,
+                    they tried to suppress Nationalism and Democracy. They succeeded for a few decades (The Concert of
+                    Europe), but ideas are bulletproof. By 1848, revolutions were burning across the continent again.
+                </p>
+            </section>
+        </article>
+    </main>
+
+    <footer class="bg-slate-900 border-t border-slate-800 py-12 text-center">
+        <p class="text-slate-600 text-sm">SOURCES: "The French Revolution" - Carlyle | "Citizens" - Schama</p>
+    </footer>
+</body>
+
+</html>

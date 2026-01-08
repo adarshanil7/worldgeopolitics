@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The World Wars - History Archives</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Merriweather:wght@300;400;700&family=Cinzel:wght@400;700&display=swap"
+        rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Merriweather', serif;
+            background-color: #0f172a;
+            color: #cbd5e1;
+        }
+
+        .brand-font {
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        .header-font {
+            font-family: 'Cinzel', serif;
+        }
+
+        .chapter-dropcap {
+            float: left;
+            font-size: 4rem;
+            line-height: 0.8;
+            font-weight: bold;
+            color: #f97316;
+            margin-right: 0.5rem;
+            font-family: 'Cinzel', serif;
+        }
+    </style>
+</head>
+
+<body class="antialiased selection:bg-orange-900 selection:text-white">
+
+    <nav class="fixed top-0 z-50 w-full bg-slate-900/95 backdrop-blur border-b border-slate-700">
+        <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+            <a href="../europe_history.html"
+                class="flex items-center gap-2 group text-slate-400 hover:text-orange-500 transition">
+                <span>←</span>
+                <span class="text-sm font-bold brand-font tracking-widest">BACK TO ARCHIVES</span>
+            </a>
+            <span class="text-slate-500 text-xs font-mono">CHAPTER 4: WORLD WARS</span>
+        </div>
+    </nav>
+
+    <header class="relative h-screen w-full flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0 bg-cover bg-center"
+            style="background-image: url('../../assets/images/industrial_revolution_steam.png');"></div>
+        <div class="absolute inset-0 bg-gradient-to-b from-slate-900/40 via-slate-900/80 to-slate-900"></div>
+        <div class="relative z-10 text-center px-4 max-w-4xl">
+            <span class="block text-orange-500 font-bold tracking-[0.3em] mb-4 brand-font">1914 — 1945</span>
+            <h1 class="text-6xl md:text-8xl font-bold text-white mb-6 header-font text-shadow-lg">The Machine Age</h1>
+            <p class="text-xl md:text-2xl text-slate-300 italic font-light">"The lamps are going out all over Europe, we
+                shall not see them lit again in our life-time."</p>
+        </div>
+    </header>
+
+    <main class="max-w-5xl mx-auto px-6 py-24 grid grid-cols-1 lg:grid-cols-12 gap-12">
+        <aside class="hidden lg:block lg:col-span-3 sticky top-32 h-fit">
+            <nav class="space-y-4 border-l border-slate-700 pl-4">
+                <a href="#intro"
+                    class="block text-orange-500 font-bold text-sm uppercase tracking-widest hover:pl-2 transition-all">I.
+                    Industrial Death</a>
+                <a href="#ww1"
+                    class="block text-slate-400 hover:text-orange-500 text-sm uppercase tracking-widest hover:pl-2 transition-all">II.
+                    The Great War</a>
+                <a href="#ww2"
+                    class="block text-slate-400 hover:text-orange-500 text-sm uppercase tracking-widest hover:pl-2 transition-all">III.
+                    The Abyss</a>
+            </nav>
+        </aside>
+
+        <article class="col-span-1 lg:col-span-9 space-y-20">
+            <section id="intro" class="prose prose-invert prose-lg max-w-none">
+                <p class="lead text-2xl text-slate-200 leading-relaxed">
+                    <span class="chapter-dropcap">T</span>he Industrial Revolution promised progress. Instead, it
+                    delivered the ability to kill on an industrial scale. When the delicate balance of power in Europe
+                    finally snapped in 1914, the result was not a heroic cavalry charge, but a meat grinder.
+                </p>
+            </section>
+
+            <section id="ww1" class="border-t border-slate-800 pt-12">
+                <h2 class="text-3xl font-bold text-white header-font mb-8">II. Total War (1914-1918)</h2>
+                <p class="text-slate-300 leading-8">
+                    It destroyed four empires: The Ottoman, The Austro-Hungarian, The Russian, and The German. It redrew
+                    the map of the world, creating the modern Middle East and planting the seeds of bitterness that
+                    would lead to round two.
+                </p>
+            </section>
+
+            <section id="ww2" class="border-t border-slate-800 pt-12 pb-24">
+                <h2 class="text-3xl font-bold text-white header-font mb-8">III. The Abyss (1939-1945)</h2>
+                <p class="text-slate-300 leading-8 mb-6">
+                    A humiliated Germany turned to the dark charisma of Fascism. The <strong>Third Reich</strong> sought
+                    to build a "Greater Germany" on the bones of Europe. It ended with the Holocaust, the atomic bomb,
+                    and the total ruin of the continent. Europe had committed suicide.
+                </p>
+            </section>
+        </article>
+    </main>
+
+    <footer class="bg-slate-900 border-t border-slate-800 py-12 text-center">
+        <p class="text-slate-600 text-sm">SOURCES: "The Sleepwalkers" - Clark | "Inferno" - Hastings</p>
+    </footer>
+</body>
+
+</html>

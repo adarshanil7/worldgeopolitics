@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rise of Nations - History Archives</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Merriweather:wght@300;400;700&family=Cinzel:wght@400;700&display=swap"
+        rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Merriweather', serif;
+            background-color: #0f172a;
+            color: #cbd5e1;
+        }
+
+        .brand-font {
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        .header-font {
+            font-family: 'Cinzel', serif;
+        }
+
+        .chapter-dropcap {
+            float: left;
+            font-size: 4rem;
+            line-height: 0.8;
+            font-weight: bold;
+            color: #10b981;
+            margin-right: 0.5rem;
+            font-family: 'Cinzel', serif;
+        }
+    </style>
+</head>
+
+<body class="antialiased selection:bg-emerald-900 selection:text-white">
+
+    <nav class="fixed top-0 z-50 w-full bg-slate-900/95 backdrop-blur border-b border-slate-700">
+        <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+            <a href="../europe_history.html"
+                class="flex items-center gap-2 group text-slate-400 hover:text-emerald-500 transition">
+                <span>←</span>
+                <span class="text-sm font-bold brand-font tracking-widest">BACK TO ARCHIVES</span>
+            </a>
+            <span class="text-slate-500 text-xs font-mono">CHAPTER 3: NATION STATES</span>
+        </div>
+    </nav>
+
+    <header class="relative h-screen w-full flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0 bg-cover bg-center"
+            style="background-image: url('../../assets/images/german_unification_bismarck.png');"></div>
+        <div class="absolute inset-0 bg-gradient-to-b from-slate-900/40 via-slate-900/80 to-slate-900"></div>
+        <div class="relative z-10 text-center px-4 max-w-4xl">
+            <span class="block text-emerald-500 font-bold tracking-[0.3em] mb-4 brand-font">1848 — 1871</span>
+            <h1 class="text-6xl md:text-8xl font-bold text-white mb-6 header-font text-shadow-lg">Blood & Iron</h1>
+            <p class="text-xl md:text-2xl text-slate-300 italic font-light">"The great questions of the day will not be
+                settled by speeches... but by iron and blood." — Bismarck</p>
+        </div>
+    </header>
+
+    <main class="max-w-5xl mx-auto px-6 py-24 grid grid-cols-1 lg:grid-cols-12 gap-12">
+        <aside class="hidden lg:block lg:col-span-3 sticky top-32 h-fit">
+            <nav class="space-y-4 border-l border-slate-700 pl-4">
+                <a href="#intro"
+                    class="block text-emerald-500 font-bold text-sm uppercase tracking-widest hover:pl-2 transition-all">I.
+                    The Map Maker</a>
+                <a href="#italy"
+                    class="block text-slate-400 hover:text-emerald-500 text-sm uppercase tracking-widest hover:pl-2 transition-all">II.
+                    Italy Arises</a>
+                <a href="#germany"
+                    class="block text-slate-400 hover:text-emerald-500 text-sm uppercase tracking-widest hover:pl-2 transition-all">III.
+                    The Reich</a>
+            </nav>
+        </aside>
+
+        <article class="col-span-1 lg:col-span-9 space-y-20">
+            <section id="intro" class="prose prose-invert prose-lg max-w-none">
+                <p class="lead text-2xl text-slate-200 leading-relaxed">
+                    <span class="chapter-dropcap">F</span>or centuries, "Germany" and "Italy" were just geographic
+                    expressions. They were patchwork quilts of tiny duchies and kingdoms. The 19th Century changed that.
+                    Driven by Nationalism, these fragments fused into two mighty Ethno-States.
+                </p>
+            </section>
+
+            <section id="italy" class="border-t border-slate-800 pt-12">
+                <h2 class="text-3xl font-bold text-white header-font mb-8">II. Italy: The Heart</h2>
+                <p class="text-slate-300 leading-8">
+                    Italian Unification (Risorgimento) was a mix of political shrewdness (Cavour) and romantic
+                    revolutionary fervor (Garibaldi). By 1861, they had expelled the Austrians and united the peninsula
+                    under King Victor Emmanuel II.
+                </p>
+            </section>
+
+            <section id="germany" class="border-t border-slate-800 pt-12 pb-24">
+                <h2 class="text-3xl font-bold text-white header-font mb-8">III. Germany: The Iron</h2>
+                <div class="bg-slate-800 p-8 rounded-xl border-l-4 border-emerald-500 mb-8">
+                    <p class="text-slate-300 italic">"The Smaller German Solution"</p>
+                </div>
+                <p class="text-slate-300 leading-8 mb-6">
+                    German Unification was colder, calculated, and orchestrated by one genius: <strong>Otto von
+                        Bismarck</strong>. He used three short wars (against Denmark, Austria, France) to bind the
+                    German states together under Prussian leadership.
+                </p>
+                <p class="text-slate-300 leading-8">
+                    Crucially, he chose the <strong>Kleindeutschland</strong> (Lesser Germany) solution, deliberately
+                    excluding the Catholic Austrian Empire to ensure Protestant Prussia remained dominant. In 1871, the
+                    German Empire was proclaimed in the Hall of Mirrors at Versailles—a humiliation France would never
+                    forgive.
+                </p>
+            </section>
+        </article>
+    </main>
+
+    <footer class="bg-slate-900 border-t border-slate-800 py-12 text-center">
+        <p class="text-slate-600 text-sm">SOURCES: "Iron Kingdom" - Clark | "Bismarck" - Steinberg</p>
+    </footer>
+</body>
+
+</html>
