@@ -163,6 +163,8 @@
                             class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Strategy</a>
                         <a href="#moves"
                             class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Moves</a>
+                        <a href="pages/history.html"
+                            class="text-red-400 hover:text-red-300 px-3 py-2 rounded-md text-sm font-bold border border-red-500/30 bg-red-500/10">ARCHIVES</a>
                         <a href="#future"
                             class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Future</a>
                     </div>
@@ -945,34 +947,38 @@
         });
 
         // --- CHART 6: Plotly 3D Scatter (WebGL/Canvas) ---
-        // Factually accurate (Approx 2024/25) for 11 Key Powers
+        // Factually accurate (Approx 2024/25) for Key Global Players
 
         // Data Arrays
         const countryNames = [
             'USA', 'China', 'Russia', 'India', 'EU (Agg)',
-            'Japan', 'UK', 'Brazil', 'Saudi', 'Iran', 'Turkey'
+            'Japan', 'UK', 'Brazil', 'Saudi', 'Iran', 'Turkey',
+            'South Korea', 'Israel'
         ];
 
         // X: Economic Power (GDP Trillion USD)
         const economicPower = [
             28.0, 18.5, 2.2, 4.1, 19.3,
-            4.2, 3.5, 2.3, 1.1, 0.4, 1.3
+            4.2, 3.5, 2.3, 1.1, 0.4, 1.3,
+            1.7, 0.55
         ];
 
         // Y: Military Power (Budget Billion USD)
         const militaryPower = [
             916, 296, 109, 84, 310,
-            53, 75, 25, 76, 10, 40
+            53, 75, 25, 76, 10, 40,
+            48, 30
         ];
 
-        // Z: Soft Power Index (0-100 Global Soft Power Index Proxy)
+        // Z: Soft Power Index (0-100 Global Soft Power Index / Brand Strength)
         const softPower = [
             100, 71.2, 35.5, 55.0, 92.0,
-            88.0, 94.0, 45.0, 50.0, 25.0, 48.0
+            88.0, 94.0, 45.0, 50.0, 25.0, 48.0,
+            82.0, 45.0
         ];
 
         // Visual Specs
-        const sizeByPop = [40, 38, 25, 36, 32, 22, 22, 24, 20, 18, 20]; // Relative sizing visual
+        const sizeByPop = [40, 38, 25, 36, 32, 22, 22, 24, 20, 18, 20, 18, 15]; // Relative sizing visual
 
         // Brand Colors
         const colors = [
@@ -986,7 +992,9 @@
             '#22c55e', // Brazil (Green)
             '#14b8a6', // Saudi (Teal)
             '#b91c1c', // Iran (Dark Red)
-            '#dc2626'  // Turkey (Crimson)
+            '#dc2626', // Turkey (Crimson)
+            '#ec4899', // South Korea (Pink - K-Pop/Vibrant)
+            '#0284c7'  // Israel (Light Blue)
         ];
 
         const trace1 = {
